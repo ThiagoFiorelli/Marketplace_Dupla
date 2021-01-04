@@ -9,6 +9,13 @@ def create_marketplace(name: str, description: str):
     maketplace = f'{name};{description}\n'
     db.add_marketplace(maketplace)
 
+<<<<<<< HEAD
+=======
+def create_marketplace(name: str, description: str):
+    maketplace = f'{name};{description}\n'
+    db.add_marketplace(maketplace)
+
+>>>>>>> main
 
 def create_product(name: str, description: str, price: float):
     product = f'{name};{description};{price}'
@@ -19,3 +26,9 @@ def create_product(name: str, description: str, price: float):
 
 def verify():
     pass
+<<<<<<< HEAD
+=======
+
+
+a = create_marketplace('b', 'a')
+>>>>>>> main
