@@ -27,7 +27,7 @@ def cadastro_Produto():
         product_price = request.args.get('price')
         actions.create_product(product_name, product_descrpition, product_price)
         menssagem = f'{product_name} cadastrado com sucesso'
-    return render_template('create_product.html', menssagem=menssagem)
+    return render_template('create_product.html', menssagem=menssagem, titulo='Cadastro de Produtos')
 
 @app.route('/')
 def home():
