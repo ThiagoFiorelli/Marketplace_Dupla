@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+<<<<<<< HEAD
 
 @app.route('/cadastrar_marketplace')
 def cadastro_Marketplace():
@@ -14,3 +15,12 @@ def cadastro_Marketplace():
 
 
 app.run(debug=True)
+=======
+titulo_head = 'Lojinha'
+
+@app.route('/')
+def home():
+    return render_template('home.html', titulo_head = 'titulo_head')
+
+app.run(debug=True)
+>>>>>>> main
