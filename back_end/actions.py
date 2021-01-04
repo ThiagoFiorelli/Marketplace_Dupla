@@ -8,10 +8,9 @@ def create_marketplace():
     pass
 
 def create_product(name: str, description: str, price: float):
-    product = f'{name};{description};{price}'
+    product = f'{name};{description};{price}\n'
     db.add_product(product)
     generate_log(f'Adicionado o produto "{name}" ao database.')
-    pass
 
 def verify():
     pass

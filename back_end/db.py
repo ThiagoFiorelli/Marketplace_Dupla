@@ -17,4 +17,3 @@ def verify_db():
 def add_marketplace(marketplace: str) -> None:
     with open(marketplaces_txt, 'a', encoding='utf-8') as marketplaces_file:
         marketplaces_file.write(marketplace)
-        marketplaces_file.close()
