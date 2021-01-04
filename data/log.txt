@@ -1,0 +1,2 @@
+16:08:32 - 04/01/2021 : Adicionado o produto "teste" ao database.
+16:11:57 - 04/01/2021 : Adicionado o marketplace "Mercado livre" ao database.
