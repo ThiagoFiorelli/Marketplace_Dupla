@@ -15,7 +15,7 @@ def cadastro_Marketplace():
     if marketplace_add is not None and description_market is not None:
         actions.create_marketplace(marketplace_add,description_market)
         menssagem = f'{marketplace_add} cadastrado com sucesso'
-    return render_template('create_marketplace.html', menssagem=menssagem)
+    return render_template('create_marketplace.html', menssagem=menssagem, titulo='Cadastro de Marketplaces')
 
 @app.route('/cadastrar_produto')
 def cadastro_Produto():
