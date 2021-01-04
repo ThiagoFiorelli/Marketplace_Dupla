@@ -1,0 +1,11 @@
+{% extends 'template.html' %}
+{% block titulo %} - {{nome}}{% endblock %}
+{% block corpo %} 
+
+<form actoion="/create_product">
+    <label>Nome :</label> <input type="text" name="name" id="name"/>
+
+    <label>Descrição :</label> <input type="text" name="descrption" id="descrption"/>
+
+    <label>Preço :</label> <input type="number" name="price" id="price"/>
+</form>
