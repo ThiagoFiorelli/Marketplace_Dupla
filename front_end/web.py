@@ -11,7 +11,7 @@ def cadastro_Marketplace():
         menssagem = f'{marketplace_add} cadastrado com sucesso'
     return render_template('create_marketplace.html', menssagem=menssagem)
 
-@app.route()
+@app.route('/cadastrar_produto')
 def cadastro_Produto():
     menssagem = ''
     product_name = request.args.get('name')
