@@ -17,5 +17,11 @@ def create_product(name: str, description: str, price: float):
     generate_log(f'Adicionado o produto "{name}" ao database.')
 
 
+def list_products():
+    products = db.read_products()
+    generate_log('Listado todos os produtos.')
+    return products
+
+
 def verify():
     pass
