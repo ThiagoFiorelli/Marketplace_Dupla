@@ -1,2 +1,8 @@
 teste;None;12
 teste;testedescription;23
+boneca;brinquedo;53
+boneca;brinquedo;1
+boneca;brinquedo;1
+
+boneca;brinquedo;3
+boneca;brinquedo;5

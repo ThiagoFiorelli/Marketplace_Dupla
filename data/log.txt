@@ -1,3 +1,9 @@
 16:08:32 - 04/01/2021 : Adicionado o produto "teste" ao database.
 16:11:57 - 04/01/2021 : Adicionado o marketplace "Mercado livre" ao database.
 16:20:06 - 04/01/2021 : Adicionado o produto "teste" ao database.
+11:46:44 - 05/01/2021 : Adicionado o produto "boneca" ao database.
+11:48:03 - 05/01/2021 : Adicionado o produto "boneca" ao database.
+11:59:56 - 05/01/2021 : Adicionado o marketplace "Magalu" ao database.
+12:00:12 - 05/01/2021 : Adicionado o produto "boneca" ao database.
+12:02:16 - 05/01/2021 : Adicionado o produto "boneca" ao database.
+12:02:28 - 05/01/2021 : Adicionado o produto "boneca" ao database.
