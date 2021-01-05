@@ -20,3 +20,15 @@ def verify_db():
 def add_marketplace(marketplace: str) -> None:
     with open(marketplaces_txt, 'a', encoding='utf-8') as marketplaces_file:
         marketplaces_file.write(f'{marketplace}\n')
+
+
+def read_marketplace() -> list:
+
+    with open(marketplaces_txt, 'r', encoding='utf-8') as marketplaces_file:
+        marketplaces = []
+        for ln in marketplaces_file:
+            name, description = ln.strip().split(';')
+            marketplaces.append({name: description})
+
+    return marketplaces
+
