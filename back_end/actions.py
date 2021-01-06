@@ -18,6 +18,11 @@ def create_product(name: str, description: str, price: float):
     generate_log(f'Adicionado o produto "{name}" ao database.')
 
 
+def create_category(name: str, description: str):
+    category = f'{name};{description}'
+    db.add_category(category)
+    generate_log(f'Adicionado a categoria "{name}" ao database.')
+
 
 def list_products():
     products = db.read_products()
