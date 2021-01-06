@@ -15,7 +15,7 @@ def cadastro_Marketplace():
     if marketplace_add is not None and description_market is not None:
         actions.create_marketplace(marketplace_add, description_market)
         menssagem = f'{marketplace_add} cadastrado com sucesso'
-    return render_template('create_marketplace.html', menssagem=menssagem, titulo='Cadastro de Marketplaces', titulo_head='titulo_head')
+    return render_template('create_marketplace.html', menssagem=menssagem, titulo='Cadastro de Marketplaces', titulo_head=titulo_head)
 
 @app.route('/cadastrar_produto')
 def cadastro_Produto():
@@ -27,11 +27,18 @@ def cadastro_Produto():
         product_price = request.args.get('price')
         actions.create_product(product_name, product_description, product_price)
         menssagem = f'{product_name} cadastrado com sucesso'
-    return render_template('create_product.html', menssagem=menssagem, titulo='Cadastro de Produtos', titulo_head='titulo_head')
+    return render_template('create_product.html', menssagem=menssagem, titulo='Cadastro de Produtos', titulo_head=titulo_head)
+
+@app.route('/listar_marketplaces')
+def lista_marketplaces():
+    marketplaces = actions.list_marketplaces()
+    return render_template('list_marketplaces.html', marketplaces=marketplaces, titulo='Marketplaces',
+                           titulo_head=titulo_head)
+
 
 @app.route('/')
 def home():
-    return render_template('home.html', titulo_head='titulo_head')
+    return render_template('home.html', titulo_head=titulo_head)
 
 
 app.run(debug=True)
