@@ -25,10 +25,10 @@ def add_marketplace(marketplace: str) -> None:
 def read_marketplace() -> list:
 
     with open(marketplaces_txt, 'r', encoding='utf-8') as marketplaces_file:
-        marketplaces = []
+        marketplaces = {}
         for ln in marketplaces_file:
             name, description = ln.strip().split(';')
-            marketplaces.append({name: description})
+            marketplaces[name] = description
 
     return marketplaces
 

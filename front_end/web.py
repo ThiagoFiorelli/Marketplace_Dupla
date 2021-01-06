@@ -32,8 +32,8 @@ def cadastro_Produto():
 @app.route('/listar_marketplaces')
 def lista_marketplaces():
     marketplaces = actions.list_marketplaces()
-    marketplaces_names = [key for marketplace in marketplaces for key in marketplace.keys()]
-    return render_template('list_marketplaces.html', marketplaces=marketplaces_names, titulo='Marketplaces', titulo_head=titulo_head)
+    return render_template('list_marketplaces.html', marketplaces=marketplaces, titulo='Marketplaces',
+                           titulo_head=titulo_head)
 
 
 @app.route('/')

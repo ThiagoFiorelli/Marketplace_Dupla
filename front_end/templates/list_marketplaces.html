@@ -1,12 +1,20 @@
 {% extends 'template.html' %}
 {% block titulo %} - Marketplace {% endblock %}
-{% block corpo %} 
+{% block corpo %}
 
-    {% for mkt in marketplaces %}
-        <li>
-            {{ mkt }}
-        </li>
-    {% endfor %}
+    <table class="table">
+        <tr>
+            <th>Marketplace</th>
+            <th>Descrição</th>
+        </tr>
+        {% for mkt in marketplaces %}
+            <tr>
+                <td>{{ mkt }}</td>
+                <td>{{ marketplaces[mkt] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 
+<a href='/'>Voltar</a>
 
 {% endblock %}
