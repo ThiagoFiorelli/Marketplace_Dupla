@@ -30,12 +30,24 @@ def cadastro_Produto():
         menssagem = f'{product_name} cadastrado com sucesso'
     return render_template('create_product.html', menssagem=menssagem, titulo='Cadastro de Produtos', titulo_head=titulo_head)
 
+
+@app.route('/cadastrar_categoria')
+def cadastro_Categoria():
+    mensagem = ''
+    category_name = request.args.get('name')
+
+    if category_name is not None:
+        category_description = request.args.get('description')
+        actions.create_category(category_name, category_description)
+        mensagem = f'{category_name} cadastrado com sucesso'
+    return render_template('create_category.html', menssagem=mensagem, titulo='Cadastro de Categorias', titulo_head=titulo_head)
+
+
 @app.route('/listar_marketplaces')
 def lista_marketplaces():
     marketplaces = actions.list_marketplaces()
     return render_template('list_marketplaces.html', marketplaces=marketplaces, titulo='Marketplaces',
                            titulo_head=titulo_head)
-
 
 
 @app.route('/listar_produtos')
