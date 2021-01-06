@@ -17,6 +17,7 @@ def cadastro_Marketplace():
         menssagem = f'{marketplace_add} cadastrado com sucesso'
     return render_template('create_marketplace.html', menssagem=menssagem, titulo='Cadastro de Marketplaces', titulo_head=titulo_head)
 
+
 @app.route('/cadastrar_produto')
 def cadastro_Produto():
     menssagem = ''
@@ -34,6 +35,13 @@ def lista_marketplaces():
     marketplaces = actions.list_marketplaces()
     return render_template('list_marketplaces.html', marketplaces=marketplaces, titulo='Marketplaces',
                            titulo_head=titulo_head)
+
+
+
+@app.route('/listar_produtos')
+def lista_produtos():
+    products = actions.list_products()
+    return render_template('list_products.html', products=products, titulo="Produtos", titulo_head=titulo_head)
 
 
 @app.route('/')
