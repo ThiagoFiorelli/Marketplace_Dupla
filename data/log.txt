@@ -7,3 +7,32 @@
 12:00:12 - 05/01/2021 : Adicionado o produto "boneca" ao database.
 12:02:16 - 05/01/2021 : Adicionado o produto "boneca" ao database.
 12:02:28 - 05/01/2021 : Adicionado o produto "boneca" ao database.
+09:22:57 - 06/01/2021 : Listado todos os marketplaces.
+09:24:41 - 06/01/2021 : Listado todos os marketplaces.
+09:35:30 - 06/01/2021 : Listado todos os marketplaces.
+09:40:14 - 06/01/2021 : Listado todos os marketplaces.
+09:45:30 - 06/01/2021 : Listado todos os marketplaces.
+09:45:38 - 06/01/2021 : Listado todos os marketplaces.
+09:46:15 - 06/01/2021 : Listado todos os marketplaces.
+09:46:25 - 06/01/2021 : Listado todos os marketplaces.
+09:48:57 - 06/01/2021 : Listado todos os marketplaces.
+09:49:06 - 06/01/2021 : Listado todos os marketplaces.
+09:49:07 - 06/01/2021 : Listado todos os marketplaces.
+09:51:22 - 06/01/2021 : Listado todos os marketplaces.
+10:13:14 - 06/01/2021 : Listado todos os marketplaces.
+10:13:42 - 06/01/2021 : Listado todos os marketplaces.
+10:16:06 - 06/01/2021 : Listado todos os marketplaces.
+10:16:36 - 06/01/2021 : Listado todos os marketplaces.
+10:17:17 - 06/01/2021 : Listado todos os marketplaces.
+10:19:19 - 06/01/2021 : Listado todos os marketplaces.
+10:19:20 - 06/01/2021 : Listado todos os marketplaces.
+10:21:14 - 06/01/2021 : Listado todos os marketplaces.
+10:21:34 - 06/01/2021 : Listado todos os marketplaces.
+10:23:50 - 06/01/2021 : Listado todos os marketplaces.
+10:24:24 - 06/01/2021 : Listado todos os marketplaces.
+10:25:27 - 06/01/2021 : Listado todos os marketplaces.
+10:27:15 - 06/01/2021 : Listado todos os marketplaces.
+10:30:11 - 06/01/2021 : Listado todos os marketplaces.
+10:31:36 - 06/01/2021 : Listado todos os marketplaces.
+10:31:39 - 06/01/2021 : Listado todos os marketplaces.
+10:32:49 - 06/01/2021 : Listado todos os marketplaces.
