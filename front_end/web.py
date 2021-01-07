@@ -42,6 +42,19 @@ def cadastro_Categoria():
         mensagem = f'{category_name} cadastrado com sucesso'
     return render_template('create_category.html', menssagem=mensagem, titulo='Cadastro de Categorias', titulo_head=titulo_head)
 
+@app.route('/cadastrar_seller')
+def cadastro_Seller():
+    message = ''
+    seller_name = request.args.get('name')
+    seller_phone = request.args.get('phone')
+    seller_email = request.args.get('email')
+
+    if seller_name is not None and seller_phone is not None and seller_email is not None:
+        actions.create_seller(seller_name, seller_phone, seller_email)
+        message = f'{seller_name} adicionado com sucesso'
+
+    return render_template('create_seller.html', menssagem=message, titulo='Cadastro Seller', titulo_head=titulo_head)
+
 
 @app.route('/listar_marketplaces')
 def lista_marketplaces():
