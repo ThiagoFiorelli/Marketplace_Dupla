@@ -1,55 +1,41 @@
-16:08:32 - 04/01/2021 : Adicionado o produto "teste" ao database.
-16:11:57 - 04/01/2021 : Adicionado o marketplace "Mercado livre" ao database.
-16:20:06 - 04/01/2021 : Adicionado o produto "teste" ao database.
-11:46:44 - 05/01/2021 : Adicionado o produto "boneca" ao database.
-11:48:03 - 05/01/2021 : Adicionado o produto "boneca" ao database.
-11:59:56 - 05/01/2021 : Adicionado o marketplace "Magalu" ao database.
-12:00:12 - 05/01/2021 : Adicionado o produto "boneca" ao database.
-12:02:16 - 05/01/2021 : Adicionado o produto "boneca" ao database.
-12:02:28 - 05/01/2021 : Adicionado o produto "boneca" ao database.
-09:22:57 - 06/01/2021 : Listado todos os marketplaces.
-09:24:41 - 06/01/2021 : Listado todos os marketplaces.
-09:35:30 - 06/01/2021 : Listado todos os marketplaces.
-09:40:14 - 06/01/2021 : Listado todos os marketplaces.
-09:45:30 - 06/01/2021 : Listado todos os marketplaces.
-09:45:38 - 06/01/2021 : Listado todos os marketplaces.
-09:46:15 - 06/01/2021 : Listado todos os marketplaces.
-09:46:25 - 06/01/2021 : Listado todos os marketplaces.
-09:48:57 - 06/01/2021 : Listado todos os marketplaces.
-09:49:06 - 06/01/2021 : Listado todos os marketplaces.
-09:49:07 - 06/01/2021 : Listado todos os marketplaces.
-09:51:22 - 06/01/2021 : Listado todos os marketplaces.
-10:13:14 - 06/01/2021 : Listado todos os marketplaces.
-10:13:42 - 06/01/2021 : Listado todos os marketplaces.
-10:16:06 - 06/01/2021 : Listado todos os marketplaces.
-10:16:36 - 06/01/2021 : Listado todos os marketplaces.
-10:17:17 - 06/01/2021 : Listado todos os marketplaces.
-10:19:19 - 06/01/2021 : Listado todos os marketplaces.
-10:19:20 - 06/01/2021 : Listado todos os marketplaces.
-10:21:14 - 06/01/2021 : Listado todos os marketplaces.
-10:21:34 - 06/01/2021 : Listado todos os marketplaces.
-10:23:50 - 06/01/2021 : Listado todos os marketplaces.
-10:24:24 - 06/01/2021 : Listado todos os marketplaces.
-10:25:27 - 06/01/2021 : Listado todos os marketplaces.
-10:27:15 - 06/01/2021 : Listado todos os marketplaces.
-10:30:11 - 06/01/2021 : Listado todos os marketplaces.
-10:31:36 - 06/01/2021 : Listado todos os marketplaces.
-10:31:39 - 06/01/2021 : Listado todos os marketplaces.
-10:32:49 - 06/01/2021 : Listado todos os marketplaces.
-08:47:52 - 07/01/2021 : Listado todos os marketplaces.
-08:48:45 - 07/01/2021 : Listado todos os produtos.
-09:14:31 - 07/01/2021 : Cadastro do seller "boneca" ao database.
-09:14:50 - 07/01/2021 : Adicionado o marketplace "Magalu" ao database.
-09:37:17 - 07/01/2021 : Listado todos os produtos.
-09:43:34 - 07/01/2021 : Listado todos os sellers.
-09:44:02 - 07/01/2021 : Cadastro do seller "bonequinha" ao database.
-09:44:04 - 07/01/2021 : Listado todos os sellers.
-10:01:03 - 07/01/2021 : Cadastro do seller "boneca" ao database.
-10:01:13 - 07/01/2021 : Listado todos os sellers.
-10:02:11 - 07/01/2021 : Cadastro do seller "boneca" ao database.
-10:02:13 - 07/01/2021 : Listado todos os sellers.
-10:21:33 - 07/01/2021 : Listado todos os sellers.
-10:21:41 - 07/01/2021 : Listado todos os produtos.
-10:21:43 - 07/01/2021 : Listado todos os sellers.
-10:40:54 - 07/01/2021 : Adicionado a categoria "eletronico" ao database.
-10:41:00 - 07/01/2021 : Listado todas as categorias.
+16:08:32 - 04/01/2021 - Cadastro do produto "teste" ao database.
+16:11:57 - 04/01/2021 - Cadastro do marketplace "Mercado livre" ao database.
+16:20:06 - 04/01/2021 - Cadastro do produto "teste" ao database.
+11:46:44 - 05/01/2021 - Cadastro do produto "boneca" ao database.
+11:48:03 - 05/01/2021 - Cadastro do produto "boneca" ao database.
+11:59:56 - 05/01/2021 - Cadastro do marketplace "Magalu" ao database.
+12:00:12 - 05/01/2021 - Cadastro do produto "boneca" ao database.
+12:02:16 - 05/01/2021 - Cadastro do produto "boneca" ao database.
+12:02:28 - 05/01/2021 - Cadastro do produto "boneca" ao database.
+09:22:57 - 06/01/2021 - Listado todos os marketplaces.
+09:24:41 - 06/01/2021 - Listado todos os marketplaces.
+09:35:30 - 06/01/2021 - Listado todos os marketplaces.
+09:40:14 - 06/01/2021 - Listado todos os marketplaces.
+09:45:30 - 06/01/2021 - Listado todos os marketplaces.
+09:45:38 - 06/01/2021 - Listado todos os marketplaces.
+09:46:15 - 06/01/2021 - Listado todos os marketplaces.
+09:46:25 - 06/01/2021 - Listado todos os marketplaces.
+09:48:57 - 06/01/2021 - Listado todos os marketplaces.
+09:49:06 - 06/01/2021 - Listado todos os marketplaces.
+09:49:07 - 06/01/2021 - Listado todos os marketplaces.
+09:51:22 - 06/01/2021 - Listado todos os marketplaces.
+10:13:14 - 06/01/2021 - Listado todos os marketplaces.
+10:13:42 - 06/01/2021 - Listado todos os marketplaces.
+10:16:06 - 06/01/2021 - Listado todos os marketplaces.
+10:16:36 - 06/01/2021 - Listado todos os marketplaces.
+08:48:45 - 07/01/2021 - Listado todos os produtos.
+09:14:31 - 07/01/2021 - Cadastro do seller "boneca" ao database.
+09:14:50 - 07/01/2021 - Cadastro do marketplace "Magalu" ao database.
+09:37:17 - 07/01/2021 - Listado todos os produtos.
+09:43:34 - 07/01/2021 - Listado todos os sellers.
+09:44:02 - 07/01/2021 - Cadastro do seller "bonequinha" ao database.
+09:44:04 - 07/01/2021 - Listado todos os sellers.
+10:01:03 - 07/01/2021 - Cadastro do seller "boneca" ao database.
+10:01:13 - 07/01/2021 - Listado todos os sellers.
+10:02:11 - 07/01/2021 - Cadastro do seller "boneca" ao database.
+10:02:13 - 07/01/2021 - Listado todos os sellers.
+10:21:33 - 07/01/2021 - Listado todos os sellers.
+10:21:41 - 07/01/2021 - Listado todos os produtos.
+10:21:43 - 07/01/2021 - Listado todos os sellers.
+10:40:54 - 07/01/2021 - Cadastro da categoria "eletronico" ao database.
+10:41:00 - 07/01/2021 - Listado todas as categorias.
