@@ -48,3 +48,6 @@
 10:01:13 - 07/01/2021 : Listado todos os sellers.
 10:02:11 - 07/01/2021 : Cadastro do seller "boneca" ao database.
 10:02:13 - 07/01/2021 : Listado todos os sellers.
+10:21:33 - 07/01/2021 : Listado todos os sellers.
+10:21:41 - 07/01/2021 : Listado todos os produtos.
+10:21:43 - 07/01/2021 : Listado todos os sellers.

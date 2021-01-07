@@ -3,19 +3,20 @@
 {% block corpo %} 
 
 <table class="table">
-    <tr>
+    <thead>
         <th>Name</th>
         <th>Phone</th>
         <th>E-mail</th>
-    </tr>
-    {% for seller in sellers %}
-    <tr>
-        <td>{{seller['name']}}</td>
-        <td>{{seller['phone']}}</td>
-        <td>{{seller['email']}}</td>
-
-    </tr>
-    {% endfor %}
+    </thead>
+    <tbody>
+        {% for seller in sellers %}
+        <tr>
+            <td>{{seller['name']}}</td>
+            <td>{{seller['phone']}}</td>
+            <td>{{seller['email']}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
 
 <a href='/'>Voltar</a>
