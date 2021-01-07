@@ -36,6 +36,7 @@ def list_marketplaces():
     return marketplaces
 
 
+<<<<<<< HEAD
 def list_products():
     products = db.read_products()
     generate_log('Listado todos os produtos.')
@@ -46,6 +47,12 @@ def list_sellers():
     sellers = db.read_seller()
     generate_log('Listado todos os sellers.')
     return sellers
+
+
+def list_categories():
+    categories = db.read_categories()
+    generate_log('Listado todas as categorias.')
+    return categories
 
 
 def verify():
