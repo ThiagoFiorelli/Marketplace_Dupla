@@ -62,6 +62,11 @@ def lista_marketplaces():
     return render_template('list_marketplaces.html', marketplaces=marketplaces, titulo='Marketplaces',
                            titulo_head=titulo_head)
 
+@app.route('/listar_sellers')
+def lista_sellers():
+    sellers = actions.list_sellers()
+    return render_template('list_sellers.html', sellers=sellers, titulo='Sellers', titulo_head=titulo_head)
+
 
 @app.route('/listar_produtos')
 def lista_produtos():
