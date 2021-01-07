@@ -3,16 +3,18 @@
 {% block corpo %} 
 
 <table class="table">
-    <tr>
+    <thead>
         <th>Name</th>
         <th>Description</th>
-    </tr>
-    {% for category in categories.keys() %}
-    <tr>
-        <td>{{category}}</td>
-        <td>{{categories[category]}}</td>
-    </tr>
-    {%endfor%}
+    </thead>
+    <tbody>
+        {% for category in categories.keys() %}
+        <tr>
+            <td>{{category}}</td>
+            <td>{{categories[category]}}</td>
+        </tr>
+        {%endfor%}
+    </tbody>
 </table>
 
 <a href='/'>Voltar</a>
