@@ -1,0 +1,15 @@
+{% extends 'template.html' %}
+{% block titulo %} - {{nome}}{% endblock %}
+{% block corpo %} 
+
+<form action="/cadastrar_seller">
+    <label>Nome :</label> <input type="text" name="name" id="name"/>
+
+    <label>Telefone :</label> <input type="text" name="phone" id="phone"/>
+
+    <label>Email :</label> <input type="text" name="email" id="email"/>
+    <input type='submit' value='Criar' />
+</form>
+<a href='/'>Voltar</a>
+
+{% endblock %}

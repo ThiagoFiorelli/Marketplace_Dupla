@@ -6,6 +6,7 @@ from back_end.log import generate_log
 marketplaces_txt = 'data/marketplaces.txt'
 product_db = 'data/product.txt'
 categories_db = 'data/categories.txt'
+sellers_db = 'data/sellers.txt'
 
 
 def add_product(product: str) -> None:
@@ -46,3 +47,8 @@ def read_marketplace() -> list:
 def add_category(category: str) -> None:
     with open(categories_db, 'a', encoding='utf-8') as categories_file:
         categories_file.write(f'{category}\n')
+
+
+def add_seller(seller: str) -> None:
+    with open(sellers_db, 'a', encoding='utf-8') as sellers_file:
+        sellers_file.write(f'{seller}\n')

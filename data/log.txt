@@ -36,3 +36,7 @@
 10:31:36 - 06/01/2021 : Listado todos os marketplaces.
 10:31:39 - 06/01/2021 : Listado todos os marketplaces.
 10:32:49 - 06/01/2021 : Listado todos os marketplaces.
+08:47:52 - 07/01/2021 : Listado todos os marketplaces.
+08:48:45 - 07/01/2021 : Listado todos os produtos.
+09:14:31 - 07/01/2021 : Cadastro do seller "boneca" ao database.
+09:14:50 - 07/01/2021 : Adicionado o marketplace "Magalu" ao database.
