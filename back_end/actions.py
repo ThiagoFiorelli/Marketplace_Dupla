@@ -36,7 +36,6 @@ def list_marketplaces():
     return marketplaces
 
 
-<<<<<<< HEAD
 def list_products():
     products = db.read_products()
     generate_log('Listado todos os produtos.')
