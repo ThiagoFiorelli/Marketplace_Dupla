@@ -56,6 +56,12 @@ def lista_produtos():
     return render_template('list_products.html', products=products, titulo="Produtos", titulo_head=titulo_head)
 
 
+@app.route('/listar_categorias')
+def lista_categorias():
+    categories = actions.list_categories()
+    return render_template('list_categories.html', categories=categories, titulo="Categorias", titulo_head=titulo_head)
+
+
 @app.route('/')
 def home():
     return render_template('home.html', titulo_head=titulo_head)
