@@ -36,5 +36,11 @@ def list_marketplaces():
     return marketplaces
 
 
+def list_categories():
+    categories = db.read_categories()
+    generate_log('Listado todas as categorias.')
+    return categories
+
+
 def verify():
     pass
