@@ -1,0 +1,20 @@
+{% extends 'template.html' %}
+{% block titulo %} - Categoria {% endblock %}
+{% block corpo %} 
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    {% for category in categories.keys() %}
+    <tr>
+        <td>{{category}}</td>
+        <td>{{categories[category]}}</td>
+    </tr>
+    {%endfor%}
+</table>
+
+<a href='/'>Voltar</a>
+
+{% endblock %}
