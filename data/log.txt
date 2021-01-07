@@ -44,3 +44,7 @@
 09:43:34 - 07/01/2021 : Listado todos os sellers.
 09:44:02 - 07/01/2021 : Cadastro do seller "bonequinha" ao database.
 09:44:04 - 07/01/2021 : Listado todos os sellers.
+10:01:03 - 07/01/2021 : Cadastro do seller "boneca" ao database.
+10:01:13 - 07/01/2021 : Listado todos os sellers.
+10:02:11 - 07/01/2021 : Cadastro do seller "boneca" ao database.
+10:02:13 - 07/01/2021 : Listado todos os sellers.
