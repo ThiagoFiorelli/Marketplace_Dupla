@@ -80,6 +80,13 @@ def lista_categorias():
     return render_template('list_categories.html', categories=categories, titulo="Categorias", titulo_head=titulo_head)
 
 
+
+@app.route('/listar_logs')
+def lista_logs():
+    logs = actions.list_logs()
+    return render_template('list_logs.html', logs=logs, titulo="Histórico", titulo_head=titulo_head)
+
+
 @app.route('/')
 def home():
     return render_template('home.html', titulo_head=titulo_head)

@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+{% block titulo %} - Histórico {% endblock %}
+{% block corpo %} 
+
+<table class="table">
+    <thead>
+        <th>Hora</th>
+        <th>Data</th>
+        <th>Descrição</th>
+    </thead>
+    <tbody>
+        {% for log in logs %}
+            {% if 'Cadastro' in log['mensagem'] %}
+                {% set valor_classe = "table-success" %}
+            {% endif %}
+            {% if 'Listado' in log['mensagem'] %}
+                {% set valor_classe = "table-info" %}
+            {% endif %}
+            <tr class={{valor_classe}}>
+                <td>{{log['hora']}}</td>
+                <td>{{log['data']}}</td>
+                <td>{{log['mensagem']}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href='/'>Voltar</a>
+
+{% endblock %}
