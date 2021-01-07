@@ -23,10 +23,18 @@ def create_category(name: str, description: str):
     db.add_category(category)
     generate_log(f'Adicionado a categoria "{name}" ao database.')
 
+
 def create_seller(name: str, phone: str, email: str):
     seller = f'{name};{phone};{email}'
     db.add_seller(seller)
     generate_log(f'Cadastro do seller "{name}" ao database.')
+
+
+def list_marketplaces():
+    marketplaces = db.read_marketplace()
+    generate_log('Listado todos os marketplaces.')
+    return marketplaces
+
 
 def list_products():
     products = db.read_products()
@@ -34,10 +42,10 @@ def list_products():
     return products
 
 
-def list_marketplaces():
-    marketplaces = db.read_marketplace()
-    generate_log('Listado todos os marketplaces.')
-    return marketplaces
+def list_sellers():
+    sellers = db.read_seller()
+    generate_log('Listado todos os sellers.')
+    return sellers
 
 
 def list_categories():

@@ -36,8 +36,8 @@ def add_marketplace(marketplace: str) -> None:
 def read_marketplace() -> list:
     with open(marketplaces_txt, 'r', encoding='utf-8') as marketplaces_file:
         marketplaces = {}
-        for ln in marketplaces_file:
-            name, description = ln.strip().split(';')
+        for mkt in marketplaces_file:
+            name, description = mkt.strip().split(';')
             marketplaces[name] = description
 
     return marketplaces
@@ -63,4 +63,11 @@ def add_seller(seller: str) -> None:
         sellers_file.write(f'{seller}\n')
 
 
+def read_seller() -> list:
+    with open(sellers_db, 'r', encoding='utf-8') as sellers_file:
+        sellers = []
+        for seller in sellers_file:
+            name, phone, email = seller.strip().split(';')
+            sellers.append({'name': name, 'phone': phone, 'email': email})
 
+    return sellers

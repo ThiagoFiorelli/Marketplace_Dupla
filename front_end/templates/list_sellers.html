@@ -1,0 +1,24 @@
+{% extends 'template.html' %}
+{% block titulo %} - Sellers {% endblock %}
+{% block corpo %} 
+
+<table class="table">
+    <thead>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>E-mail</th>
+    </thead>
+    <tbody>
+        {% for seller in sellers %}
+        <tr>
+            <td>{{seller['name']}}</td>
+            <td>{{seller['phone']}}</td>
+            <td>{{seller['email']}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href='/'>Voltar</a>
+
+{% endblock %}
