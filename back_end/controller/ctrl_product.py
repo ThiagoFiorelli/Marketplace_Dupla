@@ -1,7 +1,7 @@
 import sys
 sys.path.append('.')
 
-import back_end.dao.dao_txt as dao_ac_txt
+import back_end.dao.dao_txt_product as dao_ac_txt
 import back_end.dao.dao_log as dao_ac_log
 
 def create_product(name: str, description: str, price: float):

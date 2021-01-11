@@ -5,3 +5,4 @@ Magalu;mkt br
 Magalu;brinquedo
 Magalu;brinquedo
 Amazon;Amazon
+RalphShops;departamento

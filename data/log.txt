@@ -54,3 +54,17 @@
 13:52:17 - 11/01/2021 - Cadastro da categoria "Moveis" ao database.
 13:52:26 - 11/01/2021 - Listado todos os produtos.
 13:52:29 - 11/01/2021 - Listado todas as categorias.
+13:56:18 - 11/01/2021 - Listado todos os marketplaces.
+13:56:23 - 11/01/2021 - Listado todas as categorias.
+13:56:26 - 11/01/2021 - Listado todos os sellers.
+13:56:31 - 11/01/2021 - Listado todas as categorias.
+13:57:12 - 11/01/2021 - Cadastro do marketplace "RalphShops" ao database.
+13:57:18 - 11/01/2021 - Listado todos os marketplaces.
+13:57:58 - 11/01/2021 - Cadastro do seller "Ralph" ao database.
+13:58:05 - 11/01/2021 - Listado todos os sellers.
+15:16:51 - 11/01/2021 - Listado todas as categorias.
+15:17:00 - 11/01/2021 - Listado todos os produtos.
+15:17:16 - 11/01/2021 - Cadastro do produto "novo new novo" ao database.
+15:17:29 - 11/01/2021 - Listado todos os produtos.
+15:17:41 - 11/01/2021 - Cadastro da categoria "cad new" ao database.
+15:17:56 - 11/01/2021 - Listado todas as categorias.
