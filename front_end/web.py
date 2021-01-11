@@ -4,6 +4,8 @@ sys.path.append('.')
 from flask import Flask, render_template, request
 import back_end.controller.ctrl_category as ct_category
 import back_end.controller.ctrl_product as ct_product
+import back_end.controller.ctrl_marketplace as ct_marketplace
+import back_end.controller.ctrl_seller as ct_seller
 import back_end.dao.dao_log as dao_ac_log
 
 app = Flask(__name__)
@@ -15,7 +17,7 @@ def cadastro_Marketplace():
     marketplace_add = request.args.get('market')
     description_market = request.args.get('description')
     if marketplace_add is not None and description_market is not None:
-        actions.create_marketplace(marketplace_add, description_market)
+        ct_marketplace.create_marketplace(marketplace_add, description_market)
         menssagem = f'{marketplace_add} cadastrado com sucesso'
     return render_template('create_marketplace.html', menssagem=menssagem, titulo='Cadastro de Marketplaces', titulo_head=titulo_head)
 
@@ -52,7 +54,7 @@ def cadastro_Seller():
     seller_email = request.args.get('email')
 
     if seller_name is not None and seller_phone is not None and seller_email is not None:
-        actions.create_seller(seller_name, seller_phone, seller_email)
+        ct_seller.create_seller(seller_name, seller_phone, seller_email)
         message = f'{seller_name} adicionado com sucesso'
 
     return render_template('create_seller.html', menssagem=message, titulo='Cadastro Seller', titulo_head=titulo_head)
@@ -60,13 +62,13 @@ def cadastro_Seller():
 
 @app.route('/listar_marketplaces')
 def lista_marketplaces():
-    marketplaces = actions.list_marketplaces()
+    marketplaces = ct_marketplace.list_marketplaces()
     return render_template('list_marketplaces.html', marketplaces=marketplaces, titulo='Marketplaces',
                            titulo_head=titulo_head)
 
 @app.route('/listar_sellers')
 def lista_sellers():
-    sellers = actions.list_sellers()
+    sellers = ct_seller.list_sellers()
     return render_template('list_sellers.html', sellers=sellers, titulo='Sellers', titulo_head=titulo_head)
 
 
