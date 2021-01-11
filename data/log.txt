@@ -85,3 +85,13 @@
 17:43:34 - 11/01/2021 - Listado todas as categorias.
 17:46:09 - 11/01/2021 - Listado todas as categorias.
 17:46:17 - 11/01/2021 - Listado todas as categorias.
+18:23:34 - 11/01/2021 - Cadastro do marketplace "qq" ao database.
+18:23:40 - 11/01/2021 - Listado todos os marketplaces.
+18:25:58 - 11/01/2021 - Cadastro do marketplace "aa" ao database.
+18:26:03 - 11/01/2021 - Listado todos os marketplaces.
+18:27:39 - 11/01/2021 - Cadastro do marketplace "aa" ao database.
+18:27:45 - 11/01/2021 - Listado todos os marketplaces.
+18:28:35 - 11/01/2021 - Cadastro do marketplace "aa" ao database.
+18:28:38 - 11/01/2021 - Listado todos os marketplaces.
+18:36:21 - 11/01/2021 - Cadastro do marketplace "Amazon" ao database.
+18:36:26 - 11/01/2021 - Listado todos os marketplaces.
