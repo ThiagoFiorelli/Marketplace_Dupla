@@ -1,1 +1,6 @@
 eletronico;celular e tv
+teste refat;teste teste
+teste 3;teste 11 01 2021
+teste 4 ; teste 4 11 01 2021
+Moveis;moveis
+cad new;sssdddssss

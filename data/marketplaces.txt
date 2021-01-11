@@ -4,3 +4,6 @@ Magalu;mkt br
 Magalu;mkt br
 Magalu;brinquedo
 Magalu;brinquedo
+Amazon;Amazon
+RalphShops;departamento
+b2w;b2w
