@@ -44,3 +44,13 @@
 11:33:28 - 11/01/2021 - Cadastro da categoria "teste 4 " ao database.
 11:46:04 - 11/01/2021 - Cadastro do produto "teste produto 11 01 2021" ao database.
 11:46:26 - 11/01/2021 - Listado todos os produtos.
+13:49:19 - 11/01/2021 - Cadastro do marketplace "Amazon" ao database.
+13:49:47 - 11/01/2021 - Cadastro do seller "eu" ao database.
+13:50:41 - 11/01/2021 - Listado todos os marketplaces.
+13:50:46 - 11/01/2021 - Listado todos os sellers.
+13:51:11 - 11/01/2021 - Listado todos os produtos.
+13:51:19 - 11/01/2021 - Listado todas as categorias.
+13:52:03 - 11/01/2021 - Cadastro do produto "Sabonete" ao database.
+13:52:17 - 11/01/2021 - Cadastro da categoria "Moveis" ao database.
+13:52:26 - 11/01/2021 - Listado todos os produtos.
+13:52:29 - 11/01/2021 - Listado todas as categorias.

@@ -1,6 +1,7 @@
 import sys
 
 sys.path.append('.')
+
 from flask import Flask, render_template, request
 import back_end.controller.ctrl_category as ct_category
 import back_end.controller.ctrl_product as ct_product

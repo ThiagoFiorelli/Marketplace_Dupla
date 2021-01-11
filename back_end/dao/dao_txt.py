@@ -1,10 +1,7 @@
-import sys
-sys.path.append('/Markeplace_Dupla/back_end/')
-
 product_db = 'data/product.txt'
 categories_db = 'data/categories.txt'
-marketplaces_txt = '../marketplaces.txt'
-sellers_db = '../sellers.txt'
+marketplaces_txt = 'data/marketplaces.txt'
+sellers_db = 'data/sellers.txt'
 
 #nao achamos a chamda no codigo, talvez possa ser tirado
 def verify_db():

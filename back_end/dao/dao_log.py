@@ -1,6 +1,3 @@
-import sys
-sys.path.append('.')
-
 from datetime import datetime
 
 log_txt = 'data/log.txt'

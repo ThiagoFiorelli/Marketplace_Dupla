@@ -6,3 +6,4 @@ boneca;brinquedo;1
 boneca;brinquedo;3
 boneca;brinquedo;5
 teste produto 11 01 2021;produto bonito;34
+Sabonete;para ensaboar;1
