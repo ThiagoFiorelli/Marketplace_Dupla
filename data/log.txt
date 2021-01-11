@@ -39,3 +39,8 @@
 10:21:43 - 07/01/2021 - Listado todos os sellers.
 10:40:54 - 07/01/2021 - Cadastro da categoria "eletronico" ao database.
 10:41:00 - 07/01/2021 - Listado todas as categorias.
+10:38:37 - 11/01/2021 - Cadastro da categoria "teste refat" ao database.
+11:33:06 - 11/01/2021 - Listado todas as categorias.
+11:33:28 - 11/01/2021 - Cadastro da categoria "teste 4 " ao database.
+11:46:04 - 11/01/2021 - Cadastro do produto "teste produto 11 01 2021" ao database.
+11:46:26 - 11/01/2021 - Listado todos os produtos.
