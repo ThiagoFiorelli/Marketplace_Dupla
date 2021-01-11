@@ -80,8 +80,8 @@ def lista_produtos():
 
 @app.route('/listar_categorias')
 def lista_categorias():
-    categories = ct_category.list_categories()
-    return render_template('list_categories.html', categories=categories, titulo="Categorias", titulo_head=titulo_head)
+    list_cat = ct_category.list_categories()
+    return render_template('list_categories.html', categories=list_cat, titulo="Categorias", titulo_head=titulo_head)
 
 
 @app.route('/listar_logs')

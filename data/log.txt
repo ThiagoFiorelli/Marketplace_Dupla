@@ -76,3 +76,12 @@
 16:07:08 - 11/01/2021 - Listado todos os marketplaces.
 16:07:28 - 11/01/2021 - Cadastro do seller "Gustavo" ao database.
 16:07:34 - 11/01/2021 - Listado todos os sellers.
+16:43:53 - 11/01/2021 - Cadastro da categoria "teste banco de dados" ao database.
+16:55:04 - 11/01/2021 - Listado todas as categorias.
+17:37:31 - 11/01/2021 - Listado todas as categorias.
+17:38:42 - 11/01/2021 - Listado todas as categorias.
+17:41:45 - 11/01/2021 - Listado todas as categorias.
+17:41:51 - 11/01/2021 - Listado todas as categorias.
+17:43:34 - 11/01/2021 - Listado todas as categorias.
+17:46:09 - 11/01/2021 - Listado todas as categorias.
+17:46:17 - 11/01/2021 - Listado todas as categorias.
