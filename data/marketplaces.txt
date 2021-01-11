@@ -6,3 +6,4 @@ Magalu;brinquedo
 Magalu;brinquedo
 Amazon;Amazon
 RalphShops;departamento
+b2w;b2w

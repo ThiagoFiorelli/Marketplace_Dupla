@@ -68,3 +68,11 @@
 15:17:29 - 11/01/2021 - Listado todos os produtos.
 15:17:41 - 11/01/2021 - Cadastro da categoria "cad new" ao database.
 15:17:56 - 11/01/2021 - Listado todas as categorias.
+16:06:36 - 11/01/2021 - Listado todos os sellers.
+16:06:40 - 11/01/2021 - Listado todas as categorias.
+16:06:44 - 11/01/2021 - Listado todos os marketplaces.
+16:06:48 - 11/01/2021 - Listado todos os produtos.
+16:07:00 - 11/01/2021 - Cadastro do marketplace "b2w" ao database.
+16:07:08 - 11/01/2021 - Listado todos os marketplaces.
+16:07:28 - 11/01/2021 - Cadastro do seller "Gustavo" ao database.
+16:07:34 - 11/01/2021 - Listado todos os sellers.
