@@ -1,5 +1,6 @@
 import psycopg2
 from datetime import datetime
+from back_end.models.log import Log
 
 _host = 'pgsql08-farm15.uni5.net '
 _user = 'topskills5'
@@ -32,7 +33,8 @@ def read_logs() -> list:
     l_dict_log = []
 
     for i in list_log:
-        l_dict_log.append({'hora':i[1], 'data':i[2], 'mensagem':i[3]})
+        log = Log(i[1], i[2], i[3])
+        l_dict_log.append(log)
 
     conn.commit()
     cursor.close()
