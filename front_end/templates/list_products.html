@@ -10,9 +10,9 @@
     </tr>
     {% for product in products %}
     <tr>
-        <td>{{product['nome']}}</td>
-        <td>{{product['description']}}</td>
-        <td>{{product['price']}}</td>
+        <td>{{product.get_name()}}</td>
+        <td>{{product.get_description()}}</td>
+        <td>{{product.get_price()}}</td>
     </tr>
     {%endfor%}
 </table>
