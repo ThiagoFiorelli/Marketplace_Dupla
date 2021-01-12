@@ -1,7 +1,7 @@
 import sys
 sys.path.append('.')
 
-import back_end.dao.dao_txt_seller as dao_ac_txt
+import back_end.dao.dao_sql_seller as dao_ac_txt
 import back_end.dao.dao_log as dao_ac_log
 
 def create_seller(name: str, phone: str, email: str):
