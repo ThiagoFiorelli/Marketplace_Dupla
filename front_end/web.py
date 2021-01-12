@@ -7,7 +7,8 @@ import back_end.controller.ctrl_category as ct_category
 import back_end.controller.ctrl_product as ct_product
 import back_end.controller.ctrl_marketplace as ct_marketplace
 import back_end.controller.ctrl_seller as ct_seller
-import back_end.dao.dao_log as dao_ac_log
+import back_end.dao.dao_sql_log as ac_log
+
 
 app = Flask(__name__)
 titulo_head = 'Lojinha'
@@ -80,13 +81,14 @@ def lista_produtos():
 
 @app.route('/listar_categorias')
 def lista_categorias():
-    categories = ct_category.list_categories()
-    return render_template('list_categories.html', categories=categories, titulo="Categorias", titulo_head=titulo_head)
+    list_cat = ct_category.list_categories()
+    return render_template('list_categories.html', categories=list_cat, titulo="Categorias", titulo_head=titulo_head)
 
 
 @app.route('/listar_logs')
 def lista_logs():
-    logs = dao_ac_log.read_logs()
+    logs = ac_log.read_logs()
+    
     return render_template('list_logs.html', logs=logs, titulo="Histórico", titulo_head=titulo_head)
 
 

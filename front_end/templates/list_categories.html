@@ -8,10 +8,10 @@
         <th>Description</th>
     </thead>
     <tbody>
-        {% for category in categories.keys() %}
+        {% for category in categories %}
         <tr>
-            <td>{{category}}</td>
-            <td>{{categories[category]}}</td>
+            <td>{{category['nome']}}</td>
+            <td>{{category['descricao']}}</td>
         </tr>
         {%endfor%}
     </tbody>
