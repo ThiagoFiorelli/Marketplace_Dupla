@@ -104,3 +104,4 @@
 10:11:08 - 12/01/2021 - Cadastro do produto "prod teste" ao database.
 10:19:04 - 12/01/2021 - Listado todos os produtos.
 10:20:55 - 12/01/2021 - Listado todos os produtos.
+10:48:44 - 12/01/2021 - Cadastro do produto "microfone" ao database.
