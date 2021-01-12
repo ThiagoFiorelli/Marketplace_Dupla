@@ -33,7 +33,8 @@ def read_seller() -> list:
     l_dict_seller = []
 
     for i in list_seller:
-        l_dict_seller.append({'nome':i[1], 'email':i[3], 'fone':i[2]})
+        seller = Seller(i[1], i[2], i[3])
+        l_dict_seller.append(seller)
 
     conn.commit()
     cursor.close()
