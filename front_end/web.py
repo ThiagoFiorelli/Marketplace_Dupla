@@ -75,13 +75,13 @@ def lista_marketplaces():
 
 @app.route('/listar_sellers')
 def lista_sellers():
-    sellers = ct_seller.list_sellers()
+    sellers: Seller = ct_seller.list_sellers()
     return render_template('list_sellers.html', sellers=sellers, titulo='Sellers', titulo_head=titulo_head)
 
 
 @app.route('/listar_produtos')
 def lista_produtos():
-    products = ct_product.list_products()
+    products: Product = ct_product.list_products()
     return render_template('list_products.html', products=products, titulo="Produtos", titulo_head=titulo_head)
 
 @app.route('/listar_categorias')
