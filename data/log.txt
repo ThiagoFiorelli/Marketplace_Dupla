@@ -101,3 +101,6 @@
 09:51:46 - 12/01/2021 - Listado todos os sellers.
 09:53:38 - 12/01/2021 - Cadastro do seller "Eu" ao database.
 09:53:41 - 12/01/2021 - Listado todos os sellers.
+10:11:08 - 12/01/2021 - Cadastro do produto "prod teste" ao database.
+10:19:04 - 12/01/2021 - Listado todos os produtos.
+10:20:55 - 12/01/2021 - Listado todos os produtos.
