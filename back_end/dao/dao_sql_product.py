@@ -32,8 +32,9 @@ def read_products() -> list:
 
     l_dict_prod = []
 
-    for i in list_prod:
-        l_dict_prod.append({'nome':i[1], 'description':i[2], 'price':i[3]})
+    for prod in list_prod:
+        product = Product(prod[1], prod[2], prod[3])
+        l_dict_prod.append(product)
 
     conn.commit()
     cursor.close()

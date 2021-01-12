@@ -10,6 +10,6 @@ def create_product(product: Product):
     ac_log.save_log(f'Cadastro do produto "{product.get_name()}" ao database.')
 
 def list_products():
-    products =  dao_ac_txt.read_products()
+    products = dao_ac_txt.read_products()
     ac_log.save_log('Listado todos os produtos.')
     return products
