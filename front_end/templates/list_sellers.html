@@ -11,9 +11,9 @@
     <tbody>
         {% for seller in sellers %}
         <tr>
-            <td>{{seller['nome']}}</td>
-            <td>{{seller['email']}}</td>
-            <td>{{seller['fone']}}</td>
+            <td>{{seller.get_name()}}</td>
+            <td>{{seller.get_email()}}</td>
+            <td>{{seller.get_phone()}}</td>
         </tr>
         {% endfor %}
     </tbody>
