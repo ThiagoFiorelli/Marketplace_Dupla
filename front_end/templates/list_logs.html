@@ -17,9 +17,9 @@
                 {% set valor_classe = "table-info" %}
             {% endif %}
             <tr class={{valor_classe}}>
-                <td>{{log['hora']}}</td>
-                <td>{{log['data']}}</td>
-                <td>{{log['mensagem']}}</td>
+                <td>{{log.get_hour()}}</td>
+                <td>{{log.get_date()}}</td>
+                <td>{{log.get_mensage()}}</td>
             </tr>
         {% endfor %}
     </tbody>

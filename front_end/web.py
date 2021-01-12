@@ -11,6 +11,7 @@ import back_end.dao.dao_sql_log as ac_log
 
 from back_end.models.product import Product
 from back_end.models.seller import Seller
+from back_end.models.log import Log
 
 
 app = Flask(__name__)
@@ -92,7 +93,7 @@ def lista_categorias():
 
 @app.route('/listar_logs')
 def lista_logs():
-    logs = ac_log.read_logs()
+    logs: Log = ac_log.read_logs()
     
     return render_template('list_logs.html', logs=logs, titulo="Histórico", titulo_head=titulo_head)
 
