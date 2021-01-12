@@ -1,5 +1,4 @@
 import psycopg2
-from datetime import datetime
 from back_end.models.log import Log
 
 _host = 'pgsql08-farm15.uni5.net '
@@ -8,15 +7,12 @@ _password = 'olist123'
 _database = 'topskills5'
 _connection_string = f'host={_host} user={_user} password={_password} dbname={_database}'
 
-def generate_log(msg: str) -> None:
-    hora_atual= datetime.now().strftime('%H:%M:%S')
-    data_atual= datetime.now().strftime('%d/%m/%Y')
-
+def generate_log(log: Log) -> None:
     _connection_string
     conn = psycopg2.connect(_connection_string)
     cursor = conn.cursor()
 
-    cursor.execute(f"INSERT INTO log (hora,data,mensagem) values('{hora_atual}','{data_atual}','{msg}');")
+    cursor.execute(f"INSERT INTO log (hora,data,mensagem) values('{log.get_hour()}','{log.get_date()}','{log.get_message()}');")
     conn.commit()
     cursor.close()
     conn.close()
