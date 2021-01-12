@@ -9,8 +9,8 @@
         </tr>
         {% for mkt in marketplaces %}
             <tr>
-                <td>{{ mkt['nome'] }}</td>
-                <td>{{ mkt['descricao'] }}</td>
+                <td>{{mkt.name}}</td>
+                <td>{{mkt.description}}</td>
             </tr>
         {% endfor %}
     </table>

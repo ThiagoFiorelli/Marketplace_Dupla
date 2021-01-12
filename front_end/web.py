@@ -8,11 +8,11 @@ import back_end.controller.ctrl_product as ct_product
 import back_end.controller.ctrl_marketplace as ct_marketplace
 import back_end.controller.ctrl_seller as ct_seller
 import back_end.dao.dao_sql_log as ac_log
-
+from back_end.model.Marketplace import Marketplace
+from back_end.model.Category import Category
 from back_end.models.product import Product
 from back_end.models.seller import Seller
 from back_end.models.log import Log
-
 
 app = Flask(__name__)
 titulo_head = 'Lojinha'
@@ -23,8 +23,9 @@ def cadastro_Marketplace():
     marketplace_add = request.args.get('market')
     description_market = request.args.get('description')
     if marketplace_add is not None and description_market is not None:
-        ct_marketplace.create_marketplace(marketplace_add, description_market)
-        menssagem = f'{marketplace_add} cadastrado com sucesso'
+        mkp = Marketplace(marketplace_add, description_market)
+        ct_marketplace.create_marketplace(mkp)
+        menssagem = f'{mkp.name} cadastrado com sucesso'
     return render_template('create_marketplace.html', menssagem=menssagem, titulo='Cadastro de Marketplaces', titulo_head=titulo_head)
 
 
@@ -49,8 +50,9 @@ def cadastro_Categoria():
 
     if category_name is not None:
         category_description = request.args.get('description')
-        ct_category.create_category(category_name, category_description)
-        mensagem = f'{category_name} cadastrado com sucesso'
+        cat = Category(category_name, category_description)
+        ct_category.create_category(cat)
+        mensagem = f'{cat.name} cadastrado com sucesso'
     return render_template('create_category.html', menssagem=mensagem, titulo='Cadastro de Categorias', titulo_head=titulo_head)
 
 @app.route('/cadastrar_seller')
