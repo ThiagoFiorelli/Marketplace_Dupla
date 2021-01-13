@@ -25,7 +25,14 @@ def read_sellers(search: str = None) -> list:
         sellers = []
 
         for i in list_seller:
-            seller = Seller(i[1], i[2], i[3])
+            seller = Seller(i[1], i[2], i[3], i[0])
             sellers.append(seller)
         conn.commit()
     return sellers
+
+def delete(id: int):
+    string_connection = connect_db()
+    with psycopg2.connect(string_connection) as conn:
+        cursor = conn.cursor()
+        cursor.execute(f"DELETE FROM seller WHERE id = {id};")
+        conn.commit()

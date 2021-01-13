@@ -17,13 +17,23 @@ def read_products(search: str = None) -> list:
     string_connection = connect_db()
     with psycopg2.connect(string_connection) as conn:
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM products")
+        if search == None:
+            cursor.execute("SELECT * FROM products")
+        else:
+            cursor.execute(f"SELECT * FROM products WHERE name_prod LIKE '%{search}%' OR description LIKE '%{search}%';")
         list_prod = cursor.fetchall()
         products = []
 
         for prod in list_prod:
-            product = Product(prod[1], prod[2], prod[3])
+            product = Product(prod[1], prod[2], prod[3], prod[0])
             products.append(product)
 
         conn.commit()
-        return products
+    return products
+
+def delete(id: int):
+    string_connection = connect_db()
+    with psycopg2.connect(string_connection) as conn:
+        cursor = conn.cursor()
+        cursor.execute(f"DELETE FROM products WHERE id = {id};")
+        conn.commit()

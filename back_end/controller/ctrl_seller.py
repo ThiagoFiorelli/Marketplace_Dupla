@@ -14,3 +14,8 @@ def list_sellers(search: str = None):
     sellers = dao_ac.read_sellers(search)
     ac_log.create_log('Listado todos os sellers.')
     return sellers
+
+def delete_seller(id: int) -> list:
+    sellers = dao_ac.delete(id)
+    ac_log.create_log(f'Deletando seller com id "{id}".')
+    return sellers
