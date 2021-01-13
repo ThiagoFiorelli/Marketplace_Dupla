@@ -21,7 +21,7 @@ class Marketplace:
     
     @name.setter
     def name(self, name:str)->None:
-        self.__name
+        self.__name = name
 
     @property
     def description(self)->str:

@@ -3,7 +3,7 @@ sys.path.append('.')
 
 import back_end.dao.dao_sql_marketplace as dao_ac
 import back_end.controller.ctrl_log as ac_log
-from ..model.Marketplace import Marketplace
+from ..models.Marketplace import Marketplace
 
 def create_marketplace(mkp:Marketplace)->None:
     dao_ac.add_marketplace(mkp)
@@ -13,3 +13,18 @@ def list_marketplaces()->list:
     marketplaces = dao_ac.read_marketplaces()
     ac_log.create_log('Listado todos os marketplaces.')
     return marketplaces
+
+def get_by_id(id:int)->Marketplace:
+    return dao_ac.search_by_id(id)
+
+def update_marketplace(id:int, info):
+    mkp = get_by_id(id)
+    mkp.name = info.get('name')
+    mkp.description = info.get('description')
+    dao_ac.update(mkp)
+    ac_log.create_log(f'Alterando informações de marketplace com id "{id}".') 
+
+def delete_marketplace(id:int):
+    mkp = get_by_id(id)
+    dao_ac.delete(mkp)
+    ac_log.create_log(f'Deletando marketplace com id "{id}".')

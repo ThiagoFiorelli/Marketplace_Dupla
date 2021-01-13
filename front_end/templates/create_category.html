@@ -2,7 +2,11 @@
 {% block titulo %} - {{nome}}{% endblock %}
 {% block corpo %} 
 
+{% if titulo == 'Alteração de Categoria' %}
+<form action="/alterar_categoria/{{identifier}}" method="POST">
+{% else %}
 <form action="/cadastrar_categoria">
+{% endif %}
     <label>Nome :</label> <input type="text" name="name" id="name"/>
     <label>Descrição :</label> <input type="text" name="description" id="description"/>
     <input type='submit' value='Criar' />

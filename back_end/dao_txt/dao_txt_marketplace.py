@@ -1,4 +1,4 @@
-from ..model.Marketplace import Marketplace
+s.Marketplace import Marketplace
 
 marketplaces_txt = 'data/marketplaces.txt'
 

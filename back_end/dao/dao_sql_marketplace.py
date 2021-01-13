@@ -1,5 +1,5 @@
 import psycopg2
-from ..model.Marketplace import Marketplace
+from ..models.Marketplace import Marketplace
 from back_end.dao.connection import connect_db
 
 def add_marketplace(mkp: Marketplace) -> None:
@@ -18,6 +18,32 @@ def read_marketplaces() -> list:
         mkts = []
         for i in list_mkt:
             mkp = Marketplace(i[1], i[2])
+            mkp.id = i[0]
             mkts.append(mkp)
         conn.commit()
         return mkts
+
+def update(marketplace: Marketplace)->None:
+    string_connection = connect_db()
+    with psycopg2.connect(string_connection) as conn:
+        cursor=conn.cursor()
+        cursor.execute(f"UPDATE marketplaces SET name_mktplaces='{marketplace.name}', description='{marketplace.description}' WHERE id={marketplace.id};")
+        conn.commit() 
+
+def delete(marketplace: Marketplace)->None:
+    string_connection = connect_db()
+    with psycopg2.connect(string_connection) as conn:
+        cursor=conn.cursor()
+        cursor.execute(f"DELETE FROM marketplaces WHERE id={marketplace.id};")
+        conn.commit() 
+
+def search_by_id(id:int)->Marketplace:
+    string_connection = connect_db()
+    with psycopg2.connect(string_connection) as conn:
+        cursor= conn.cursor()
+        cursor.execute(f"SELECT * FROM marketplaces WHERE id={id}")
+        mkp=cursor.fetchone()
+        conn.commit()
+    marketplace = Marketplace(mkp[1], mkp[2])
+    marketplace.id = mkp[0]
+    return marketplace
