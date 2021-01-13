@@ -10,7 +10,7 @@ def create_seller(seller: Seller):
     ac_log.create_log(f'Cadastro do seller "{seller.get_name()}" ao database.')
 
 
-def list_sellers():
-    sellers = dao_ac.read_sellers()
+def list_sellers(search: str = None):
+    sellers = dao_ac.read_sellers(search)
     ac_log.create_log('Listado todos os sellers.')
     return sellers

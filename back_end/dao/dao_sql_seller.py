@@ -13,11 +13,14 @@ def add_seller(seller: Seller) -> None:
         cursor.execute(f"INSERT INTO seller (name_seller, email, phone) values('{name}','{email}', '{phone}');")
         conn.commit()
 
-def read_sellers() -> list:
+def read_sellers(search: str = None) -> list:
     string_connection = connect_db()
     with psycopg2.connect(string_connection) as conn:
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM seller")
+        if search == None:
+            cursor.execute("SELECT * FROM seller;")
+        else:
+            cursor.execute(f"SELECT * FROM seller WHERE name_seller LIKE '%{search}%' OR email LIKE '%{search}%' OR phone LIKE '%{search}%'")
         list_seller = cursor.fetchall()
         sellers = []
 

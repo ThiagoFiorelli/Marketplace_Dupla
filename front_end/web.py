@@ -2,7 +2,7 @@ import sys
 
 sys.path.append('.')
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import back_end.controller.ctrl_category as ct_category
 import back_end.controller.ctrl_product as ct_product
 import back_end.controller.ctrl_marketplace as ct_marketplace
@@ -76,9 +76,14 @@ def lista_marketplaces():
     return render_template('list_marketplaces.html', marketplaces=marketplaces, titulo='Marketplaces',
                            titulo_head=titulo_head)
 
-@app.route('/listar_sellers')
+@app.route('/listar_sellers', methods=['GET', 'POST'])
 def lista_sellers():
-    sellers: Seller = ct_seller.list_sellers()
+    if request.method == 'POST':
+        search = request.form.get('search')
+        sellers: Seller = ct_seller.list_sellers(search)
+        redirect('/listar_sellers')
+    else:
+        sellers: Seller = ct_seller.list_sellers()
     return render_template('list_sellers.html', sellers=sellers, titulo='Sellers', titulo_head=titulo_head)
 
 
