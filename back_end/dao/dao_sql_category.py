@@ -1,4 +1,4 @@
-from ..model.Category import Category
+from ..models.Category import Category
 from back_end.dao.connection import connect_db
 
 def add_category(category: Category)-> None:
