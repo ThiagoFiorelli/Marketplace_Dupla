@@ -6,7 +6,6 @@ def add_seller(seller: Seller) -> None:
     string_connection = connect_db()
     with psycopg2.connect(string_connection) as conn:
         cursor = conn.cursor()
-
         name = seller.get_name()
         email = seller.get_email()
         phone = seller.get_phone()
@@ -19,16 +18,12 @@ def read_seller() -> list:
     string_connection = connect_db()
     with psycopg2.connect(string_connection) as conn:
         cursor = conn.cursor()
-
         cursor.execute("SELECT * FROM seller")
         list_seller = cursor.fetchall()
-
-        l_dict_seller = []
+        sellers = []
 
         for i in list_seller:
             seller = Seller(i[1], i[2], i[3])
-            l_dict_seller.append(seller)
-
+            sellers.append(seller)
         conn.commit()
-
-    return l_dict_seller
+    return sellers
