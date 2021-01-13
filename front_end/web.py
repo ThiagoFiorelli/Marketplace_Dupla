@@ -2,14 +2,14 @@ import sys
 
 sys.path.append('.')
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import back_end.controller.ctrl_category as ct_category
 import back_end.controller.ctrl_product as ct_product
 import back_end.controller.ctrl_marketplace as ct_marketplace
 import back_end.controller.ctrl_seller as ct_seller
 import back_end.dao.dao_sql_log as ac_log
-from back_end.model.Marketplace import Marketplace
-from back_end.model.Category import Category
+from back_end.models.Marketplace import Marketplace
+from back_end.models.Category import Category
 from back_end.models.product import Product
 from back_end.models.seller import Seller
 from back_end.models.log import Log
@@ -76,16 +76,57 @@ def lista_marketplaces():
     return render_template('list_marketplaces.html', marketplaces=marketplaces, titulo='Marketplaces',
                            titulo_head=titulo_head)
 
-@app.route('/listar_sellers')
+@app.route('/listar_sellers', methods=['GET', 'POST'])
 def lista_sellers():
-    sellers: Seller = ct_seller.list_sellers()
+    if request.method == 'POST':
+        search = request.form.get('search')
+        sellers = ct_seller.list_sellers(search)
+        redirect('/listar_sellers')
+    else:
+        sellers = ct_seller.list_sellers()
     return render_template('list_sellers.html', sellers=sellers, titulo='Sellers', titulo_head=titulo_head)
 
+@app.route('/delete_seller/<identifier>')
+def delete_seller(identifier):
+    ct_seller.delete_seller(identifier)
+    return redirect('/listar_sellers')
 
-@app.route('/listar_produtos')
+@app.route('/alterar_seller/<identifier>', methods=['GET', 'POST'])
+def alterar_seller(identifier):
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        phone = request.form.get('phone')
+        seller = Seller(name, email, phone)
+        ct_seller.update_seller(identifier, seller)
+        return redirect('/listar_sellers')
+    return render_template('create_seller.html', identifier = identifier, titulo='Alteração de Seller', titulo_head=titulo_head)
+
+@app.route('/listar_produtos', methods=['GET', 'POST'])
 def lista_produtos():
-    products: Product = ct_product.list_products()
+    if request.method == 'POST':
+        search = request.form.get('search')
+        products = ct_product.list_products(search)
+        redirect('/listar_produtos')
+    else:
+        products = ct_product.list_products()
     return render_template('list_products.html', products=products, titulo="Produtos", titulo_head=titulo_head)
+
+@app.route('/delete_product/<identifier>')
+def delete_product(identifier):
+    ct_product.delete_product(identifier)
+    return redirect('/listar_produtos')
+
+@app.route('/alterar_produto/<identifier>', methods=['GET', 'POST'])
+def alterar_produto(identifier):
+    if request.method == 'POST':
+        name = request.form.get('name')
+        description = request.form.get('description')
+        price = request.form.get('price')
+        product = Product(name, description, price)
+        ct_product.update_product(identifier, product)
+        return redirect('/listar_produtos')
+    return render_template('create_product.html', identifier = identifier, titulo='Alteração de Produto', titulo_head=titulo_head)
 
 @app.route('/listar_categorias')
 def lista_categorias():

@@ -10,7 +10,15 @@ def create_seller(seller: Seller):
     ac_log.create_log(f'Cadastro do seller "{seller.get_name()}" ao database.')
 
 
-def list_sellers():
-    sellers = dao_ac.read_sellers()
+def list_sellers(search: str = None):
+    sellers = dao_ac.read_sellers(search)
     ac_log.create_log('Listado todos os sellers.')
     return sellers
+
+def delete_seller(id: int):
+    dao_ac.delete(id)
+    ac_log.create_log(f'Deletando seller com id "{id}".')
+
+def update_seller(id: int, seller):
+    dao_ac.update(id, seller)
+    ac_log.create_log(f'Alterando informações de seller com id "{id}".')
