@@ -80,10 +80,10 @@ def lista_marketplaces():
 def lista_sellers():
     if request.method == 'POST':
         search = request.form.get('search')
-        sellers: Seller = ct_seller.list_sellers(search)
+        sellers = ct_seller.list_sellers(search)
         redirect('/listar_sellers')
     else:
-        sellers: Seller = ct_seller.list_sellers()
+        sellers = ct_seller.list_sellers()
     return render_template('list_sellers.html', sellers=sellers, titulo='Sellers', titulo_head=titulo_head)
 
 @app.route('/delete_seller/<identifier>')
@@ -94,9 +94,11 @@ def delete_seller(identifier):
 @app.route('/alterar_seller/<identifier>', methods=['GET', 'POST'])
 def alterar_seller(identifier):
     if request.method == 'POST':
-        info = request.form
-        ct_seller.update_seller(identifier, info)
-        print('deu certo')
+        name = request.form.get('name')
+        email = request.form.get('email')
+        phone = request.form.get('phone')
+        seller = Seller(name, email, phone)
+        ct_seller.update_seller(identifier, seller)
         return redirect('/listar_sellers')
     return render_template('create_seller.html', identifier = identifier, titulo='Alteração de Seller', titulo_head=titulo_head)
 
@@ -104,10 +106,10 @@ def alterar_seller(identifier):
 def lista_produtos():
     if request.method == 'POST':
         search = request.form.get('search')
-        products: Product = ct_product.list_products(search)
+        products = ct_product.list_products(search)
         redirect('/listar_produtos')
     else:
-        products: Product = ct_product.list_products()
+        products = ct_product.list_products()
     return render_template('list_products.html', products=products, titulo="Produtos", titulo_head=titulo_head)
 
 @app.route('/delete_product/<identifier>')
@@ -118,9 +120,11 @@ def delete_product(identifier):
 @app.route('/alterar_produto/<identifier>', methods=['GET', 'POST'])
 def alterar_produto(identifier):
     if request.method == 'POST':
-        info = request.form
-        ct_product.update_product(identifier, info)
-        print('deu certo')
+        name = request.form.get('name')
+        description = request.form.get('description')
+        price = request.form.get('price')
+        product = Product(name, description, price)
+        ct_product.update_product(identifier, product)
         return redirect('/listar_produtos')
     return render_template('create_product.html', identifier = identifier, titulo='Alteração de Produto', titulo_head=titulo_head)
 

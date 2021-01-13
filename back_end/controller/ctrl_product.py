@@ -18,10 +18,6 @@ def delete_product(id: int):
     dao_ac.delete(id)
     ac_log.create_log(f'Deletando produto com id "{id}".')
 
-def update_product(id: int, info):
-    info_list = []
-    info_list.append(info.get('name'))
-    info_list.append(info.get('description'))
-    info_list.append(info.get('price'))
-    dao_ac.update(id, info_list)
+def update_product(id: int, product):
+    dao_ac.update(id, product)
     ac_log.create_log(f'Alterando informações de produto com id "{id}".')

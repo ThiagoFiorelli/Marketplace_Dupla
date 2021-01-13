@@ -36,12 +36,12 @@ def delete(id: int):
         cursor.execute(f"DELETE FROM seller WHERE id = {id};")
         conn.commit()
 
-def update(id: int, info: list):
+def update(id: int, seller):
     db = connect_db()
     with db as conn:
         cursor = conn.cursor()
-        name = info[0]
-        email = info[1]
-        phone = info[2]
+        name = seller.get_name()
+        email = seller.get_email()
+        phone = seller.get_phone()
         cursor.execute(f"UPDATE seller set name_seller = '{name}', email = '{email}', phone = '{phone}' WHERE id = {id};")
         conn.commit()
