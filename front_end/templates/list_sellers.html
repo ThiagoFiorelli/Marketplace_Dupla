@@ -1,24 +1,33 @@
 {% extends 'template.html' %}
 {% block titulo %} - Sellers {% endblock %}
 {% block corpo %} 
+<div>
+    <form action='/listar_sellers' method="POST">
+        <input placeholder='Pesquisa' name='search' />
+        <input type="submit" />
+    </form>
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>E-mail</th>
+        </thead>
+        <tbody>
+            {% for seller in sellers %}
+            <tr>
+                <td>{{seller.get_name()}}</td>
+                <td>{{seller.get_email()}}</td>
+                <td>{{seller.get_phone()}}</td>
+                <td><a href="/delete_seller/{{seller.get_identifier()}}">Deletar</a></td>
+                <td><a href="/alterar_seller/{{seller.get_identifier()}}">Alterar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-<table class="table">
-    <thead>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>E-mail</th>
-    </thead>
-    <tbody>
-        {% for seller in sellers %}
-        <tr>
-            <td>{{seller.get_name()}}</td>
-            <td>{{seller.get_email()}}</td>
-            <td>{{seller.get_phone()}}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-<a href='/'>Voltar</a>
+    <a href='/'>Voltar</a>
+</div>
 
 {% endblock %}
