@@ -1,5 +1,5 @@
 import psycopg2
-from ..model.Marketplace import Marketplace
+from ..models.Marketplace import Marketplace
 from back_end.dao.connection import connect_db
 
 def add_marketplace(mkp: Marketplace) -> None:

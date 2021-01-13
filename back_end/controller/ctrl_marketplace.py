@@ -3,7 +3,7 @@ sys.path.append('.')
 
 import back_end.dao.dao_sql_marketplace as dao_ac
 import back_end.controller.ctrl_log as ac_log
-from ..model.Marketplace import Marketplace
+from ..models.Marketplace import Marketplace
 
 def create_marketplace(mkp:Marketplace)->None:
     dao_ac.add_marketplace(mkp)

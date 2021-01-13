@@ -1,4 +1,4 @@
-from ..model.Category import Category
+from ..models.Category import Category
 
 categories_db = 'data/categories.txt'
 

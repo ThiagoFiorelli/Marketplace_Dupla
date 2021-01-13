@@ -8,8 +8,8 @@ import back_end.controller.ctrl_product as ct_product
 import back_end.controller.ctrl_marketplace as ct_marketplace
 import back_end.controller.ctrl_seller as ct_seller
 import back_end.dao.dao_sql_log as ac_log
-from back_end.model.Marketplace import Marketplace
-from back_end.model.Category import Category
+from back_end.models.Marketplace import Marketplace
+from back_end.models.Category import Category
 from back_end.models.product import Product
 from back_end.models.seller import Seller
 from back_end.models.log import Log
