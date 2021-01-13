@@ -4,6 +4,7 @@
 <div>
     <form action='/listar_sellers' method="POST">
         <input placeholder='Pesquisa' name='search' />
+        <input type="submit" />
     </form>
 </div>
 <div>
@@ -19,6 +20,7 @@
                 <td>{{seller.get_name()}}</td>
                 <td>{{seller.get_email()}}</td>
                 <td>{{seller.get_phone()}}</td>
+                <td><a href="/delete_seller/{{seller.get_identifier()}}">Deletar</a></td>
             </tr>
             {% endfor %}
         </tbody>

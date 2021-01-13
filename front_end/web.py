@@ -86,11 +86,25 @@ def lista_sellers():
         sellers: Seller = ct_seller.list_sellers()
     return render_template('list_sellers.html', sellers=sellers, titulo='Sellers', titulo_head=titulo_head)
 
+@app.route('/delete_seller/<identifier>')
+def delete_seller(identifier):
+    ct_seller.delete_seller(identifier)
+    return redirect('/listar_sellers')
 
-@app.route('/listar_produtos')
+@app.route('/listar_produtos', methods=['GET', 'POST'])
 def lista_produtos():
-    products: Product = ct_product.list_products()
+    if request.method == 'POST':
+        search = request.form.get('search')
+        products: Product = ct_product.list_products(search)
+        redirect('/listar_produtos')
+    else:
+        products: Product = ct_product.list_products()
     return render_template('list_products.html', products=products, titulo="Produtos", titulo_head=titulo_head)
+
+@app.route('/delete_product/<identifier>')
+def delete_product(identifier):
+    ct_product.delete_product(identifier)
+    return redirect('/listar_produtos')
 
 @app.route('/listar_categorias')
 def lista_categorias():
