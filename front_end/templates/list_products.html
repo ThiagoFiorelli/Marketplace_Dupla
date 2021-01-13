@@ -21,6 +21,7 @@
             <td>{{product.get_description()}}</td>
             <td>{{product.get_price()}}</td>
             <td><a href="/delete_product/{{product.get_identifier()}}">Deletar</a></td>
+            <td><a href="/alterar_produto/{{product.get_identifier()}}">Alterar</a></td>
         </tr>
         {%endfor%}
     </table>

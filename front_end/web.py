@@ -91,6 +91,15 @@ def delete_seller(identifier):
     ct_seller.delete_seller(identifier)
     return redirect('/listar_sellers')
 
+@app.route('/alterar_seller/<identifier>', methods=['GET', 'POST'])
+def alterar_seller(identifier):
+    if request.method == 'POST':
+        info = request.form
+        ct_seller.update_seller(identifier, info)
+        print('deu certo')
+        return redirect('/listar_sellers')
+    return render_template('create_seller.html', identifier = identifier, titulo='Alteração de Seller', titulo_head=titulo_head)
+
 @app.route('/listar_produtos', methods=['GET', 'POST'])
 def lista_produtos():
     if request.method == 'POST':
@@ -105,6 +114,15 @@ def lista_produtos():
 def delete_product(identifier):
     ct_product.delete_product(identifier)
     return redirect('/listar_produtos')
+
+@app.route('/alterar_produto/<identifier>', methods=['GET', 'POST'])
+def alterar_produto(identifier):
+    if request.method == 'POST':
+        info = request.form
+        ct_product.update_product(identifier, info)
+        print('deu certo')
+        return redirect('/listar_produtos')
+    return render_template('create_product.html', identifier = identifier, titulo='Alteração de Produto', titulo_head=titulo_head)
 
 @app.route('/listar_categorias')
 def lista_categorias():

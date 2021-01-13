@@ -2,7 +2,11 @@
 {% block titulo %} - {{nome}}{% endblock %}
 {% block corpo %} 
 
+{% if titulo == 'Alteração de Produto' %}
+<form action="/alterar_produto/{{identifier}}" method="POST">
+{% else %}
 <form action="/cadastrar_produto">
+{% endif %}
     <label>Nome :</label> <input type="text" name="name" id="name"/>
     <label>Descrição :</label> <input type="text" name="description" id="description"/>
     <label>Preço :</label> <input type="number" name="price" id="price"/>
