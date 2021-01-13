@@ -36,3 +36,13 @@ def delete(id: int):
         cursor = conn.cursor()
         cursor.execute(f"DELETE FROM seller WHERE id = {id};")
         conn.commit()
+
+def update(id: int, info: list):
+    string_connection = connect_db()
+    with psycopg2.connect(string_connection) as conn:
+        cursor = conn.cursor()
+        name = info[0]
+        email = info[1]
+        phone = info[2]
+        cursor.execute(f"UPDATE seller set name_seller = '{name}', email = '{email}', phone = '{phone}' WHERE id = {id};")
+        conn.commit()

@@ -15,7 +15,14 @@ def list_sellers(search: str = None):
     ac_log.create_log('Listado todos os sellers.')
     return sellers
 
-def delete_seller(id: int) -> list:
-    sellers = dao_ac.delete(id)
+def delete_seller(id: int):
+    dao_ac.delete(id)
     ac_log.create_log(f'Deletando seller com id "{id}".')
-    return sellers
+
+def update_seller(id: int, info):
+    info_list = []
+    info_list.append(info.get('name'))
+    info_list.append(info.get('email'))
+    info_list.append(info.get('phone'))
+    dao_ac.update(id, info_list)
+    ac_log.create_log(f'Alterando informações de seller com id "{id}".')

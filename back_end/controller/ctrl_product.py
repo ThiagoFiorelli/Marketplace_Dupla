@@ -14,7 +14,14 @@ def list_products(search: str = None) -> list:
     ac_log.create_log('Listado todos os produtos.')
     return products
 
-def delete_product(id: int) -> list:
-    products = dao_ac.delete(id)
+def delete_product(id: int):
+    dao_ac.delete(id)
     ac_log.create_log(f'Deletando produto com id "{id}".')
-    return products
+
+def update_product(id: int, info):
+    info_list = []
+    info_list.append(info.get('name'))
+    info_list.append(info.get('description'))
+    info_list.append(info.get('price'))
+    dao_ac.update(id, info_list)
+    ac_log.create_log(f'Alterando informações de produto com id "{id}".')
