@@ -1,6 +1,6 @@
 import psycopg2
 from back_end.models.seller import Seller
-from connection import connect_db
+from back_end.dao.connection import connect_db
 
 def add_seller(seller: Seller) -> None:
     string_connection = connect_db()

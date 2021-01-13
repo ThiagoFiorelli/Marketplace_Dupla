@@ -1,6 +1,6 @@
 import psycopg2
 from back_end.models.log import Log
-from connection import connect_db
+from back_end.dao.connection import connect_db
 
 def generate_log(log: Log) -> None:
     string_connection = connect_db()
