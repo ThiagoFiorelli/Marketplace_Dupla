@@ -7,9 +7,9 @@ from ..model.Marketplace import Marketplace
 
 def create_marketplace(mkp:Marketplace)->None:
     dao_ac.add_marketplace(mkp)
-    ac_log.save_log(f'Cadastro do marketplace "{mkp.name}" ao database.')
+    ac_log.create_log(f'Cadastro do marketplace "{mkp.name}" ao database.')
 
 def list_marketplaces()->list:
-    marketplaces = dao_ac.read_marketplace()
-    ac_log.save_log('Listado todos os marketplaces.')
+    marketplaces = dao_ac.read_marketplaces()
+    ac_log.create_log('Listado todos os marketplaces.')
     return marketplaces

@@ -7,10 +7,10 @@ from back_end.models.seller import Seller
 
 def create_seller(seller: Seller):
     dao_ac_txt.add_seller(seller)
-    ac_log.save_log(f'Cadastro do seller "{seller.get_name()}" ao database.')
+    ac_log.create_log(f'Cadastro do seller "{seller.get_name()}" ao database.')
 
 
 def list_sellers():
-    sellers = dao_ac_txt.read_seller()
-    ac_log.save_log('Listado todos os sellers.')
+    sellers = dao_ac_txt.read_sellers()
+    ac_log.create_log('Listado todos os sellers.')
     return sellers

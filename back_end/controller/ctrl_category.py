@@ -7,9 +7,9 @@ from ..model.Category import Category
 
 def create_category(cat: Category)->None:
     dao_ac.add_category(cat)
-    ac_log.save_log(f'Cadastro da categoria "{cat.name}" ao database.')
+    ac_log.create_log(f'Cadastro da categoria "{cat.name}" ao database.')
 
 def list_categories()->list:
     categories = dao_ac.read_categories()
-    ac_log.save_log('Listado todas as categorias.')
+    ac_log.create_log('Listado todas as categorias.')
     return categories

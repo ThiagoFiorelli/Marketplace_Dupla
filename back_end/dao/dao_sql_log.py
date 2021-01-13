@@ -9,7 +9,6 @@ def add_log(log: Log) -> None:
         cursor.execute(f"INSERT INTO log (hora, data, mensagem) values('{log.get_hour()}','{log.get_date()}','{log.get_message()}');")
         conn.commit()
     
-
 def read_logs() -> list:
     string_connection = connect_db()
     with psycopg2.connect(string_connection) as conn:

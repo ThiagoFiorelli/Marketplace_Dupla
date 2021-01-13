@@ -9,9 +9,9 @@ def create_log(dado:str):
     hora_atual= datetime.now().strftime('%H:%M:%S')
     data_atual= datetime.now().strftime('%d/%m/%Y')
     log= Log(hora_atual, data_atual, dado)
-    dao_log.generate_log(log)
+    dao_log.add_log(log)
 
 def list_log() -> list:
     list_aux= []
-    list_aux= dao_log.read_logs()
+    list_aux= add_log.read_logs()
     return list_aux

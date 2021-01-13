@@ -13,8 +13,7 @@ def add_seller(seller: Seller) -> None:
         cursor.execute(f"INSERT INTO seller (name_seller, email, phone) values('{name}','{email}', '{phone}');")
         conn.commit()
 
-
-def read_seller() -> list:
+def read_sellers() -> list:
     string_connection = connect_db()
     with psycopg2.connect(string_connection) as conn:
         cursor = conn.cursor()

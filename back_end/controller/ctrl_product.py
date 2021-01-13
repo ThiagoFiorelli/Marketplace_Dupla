@@ -7,9 +7,9 @@ from back_end.models.product import Product
 
 def create_product(product: Product):
     dao_ac_txt.add_product(product)
-    ac_log.save_log(f'Cadastro do produto "{product.get_name()}" ao database.')
+    ac_log.create_log(f'Cadastro do produto "{product.get_name()}" ao database.')
 
 def list_products():
     products = dao_ac_txt.read_products()
-    ac_log.save_log('Listado todos os produtos.')
+    ac_log.create_log('Listado todos os produtos.')
     return products

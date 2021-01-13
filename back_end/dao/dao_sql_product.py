@@ -13,8 +13,7 @@ def add_product(product: Product) -> None:
         cursor.execute(f"INSERT INTO products (name_prod, description, price) values('{name}','{description}', {price});")
         conn.commit()
 
-
-def read_products() -> list:
+def read_products(search: str = None) -> list:
     string_connection = connect_db()
     with psycopg2.connect(string_connection) as conn:
         cursor = conn.cursor()
