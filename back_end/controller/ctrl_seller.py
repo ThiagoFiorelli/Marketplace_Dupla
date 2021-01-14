@@ -1,24 +1,11 @@
 import sys
 sys.path.append('.')
 
-import back_end.dao.dao_sql_seller as dao_ac
-import back_end.controller.ctrl_log as ac_log
 from back_end.models.seller import Seller
+from back_end.dao.seller_dao import SellerDao
+from back_end.controller.base_controller import BaseController
 
-def create_seller(seller: Seller):
-    dao_ac.add_seller(seller)
-    ac_log.create_log(f'Cadastro do seller "{seller.get_name()}" ao database.')
-
-
-def list_sellers(search: str = None):
-    sellers = dao_ac.read_sellers(search)
-    ac_log.create_log('Listado todos os sellers.')
-    return sellers
-
-def delete_seller(id: int):
-    dao_ac.delete(id)
-    ac_log.create_log(f'Deletando seller com id "{id}".')
-
-def update_seller(id: int, seller):
-    dao_ac.update(id, seller)
-    ac_log.create_log(f'Alterando informações de seller com id "{id}".')
+class SellerController(BaseController):
+    def __init__(self) -> None:
+        self.__dao = SellerDao()
+        super().__init__(self.__dao)
