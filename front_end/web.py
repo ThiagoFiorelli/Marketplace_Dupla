@@ -3,15 +3,16 @@ import sys
 sys.path.append('.')
 
 from flask import Flask, render_template, request, redirect, url_for
-import back_end.controller.ctrl_category as ct_category
-import back_end.controller.ctrl_product as ct_product
 import back_end.controller.ctrl_marketplace as ct_marketplace
-import back_end.controller.ctrl_seller as ct_seller
-import back_end.dao.dao_sql_log as ac_log
+from back_end.controller.ctrl_seller import SellerController
+import back_end.controller.ctrl_category as ct_category
+from back_end.controller.ctrl_product import ProductController
+from back_end.controller.ctrl_log import LogController
+
 from back_end.models.Marketplace import Marketplace
+from back_end.models.seller import Seller
 from back_end.models.Category import Category
 from back_end.models.product import Product
-from back_end.models.seller import Seller
 from back_end.models.log import Log
 
 app = Flask(__name__)
@@ -31,14 +32,14 @@ def cadastro_Marketplace():
 @app.route('/cadastrar_seller')
 def cadastro_Seller():
     message = ''
-    seller_name = request.args.get('name')
-    seller_phone = request.args.get('phone')
-    seller_email = request.args.get('email')
+    name = request.args.get('name')
+    phone = request.args.get('phone')
+    email = request.args.get('email')
 
-    if seller_name is not None and seller_phone is not None and seller_email is not None:
-        seller = Seller(seller_name, seller_email, seller_phone)
-        ct_seller.create_seller(seller)
-        message = f'{seller_name} adicionado com sucesso'
+    if name is not None and phone is not None and email is not None:
+        seller = Seller(name, email, phone)
+        SellerController.create(seller)
+        message = f'{name} adicionado com sucesso'
     return render_template('create_seller.html', menssagem=message, titulo='Cadastro Seller', titulo_head=titulo_head)
 
 @app.route('/cadastrar_categoria')
@@ -56,14 +57,14 @@ def cadastro_Categoria():
 @app.route('/cadastrar_produto')
 def cadastro_Produto():
     menssagem = ''
-    product_name = request.args.get('name')
+    name = request.args.get('name')
 
-    if product_name is not None:
-        product_description = request.args.get('description')
-        product_price = request.args.get('price')
-        product = Product(product_name, product_description, product_price)
-        ct_product.create_product(product)
-        menssagem = f'{product_name} cadastrado com sucesso'
+    if name is not None:
+        description = request.args.get('description')
+        price = request.args.get('price')
+        product = Product(name, description, price)
+        ProductController.create(product)
+        menssagem = f'{name} cadastrado com sucesso'
     return render_template('create_product.html', menssagem=menssagem, titulo='Cadastro de Produtos', titulo_head=titulo_head)
 
 
@@ -77,10 +78,10 @@ def lista_marketplaces():
 def lista_sellers():
     if request.method == 'POST':
         search = request.form.get('search')
-        sellers = ct_seller.list_sellers(search)
+        sellers = SellerController.read(search)
         redirect('/listar_sellers')
     else:
-        sellers = ct_seller.list_sellers()
+        sellers = SellerController.read()
     return render_template('list_sellers.html', sellers=sellers, titulo='Sellers', titulo_head=titulo_head)
 
 @app.route('/listar_categorias')
@@ -92,15 +93,16 @@ def lista_categorias():
 def lista_produtos():
     if request.method == 'POST':
         search = request.form.get('search')
-        products = ct_product.list_products(search)
+        products = ProductController.read(search)
         redirect('/listar_produtos')
     else:
-        products = ct_product.list_products()
+        products = ProductController.read()
     return render_template('list_products.html', products=products, titulo="Produtos", titulo_head=titulo_head)
 
 @app.route('/listar_logs')
 def lista_logs():
-    logs = ac_log.read_logs()
+    log = LogController()
+    logs = log.read()
     return render_template('list_logs.html', logs=logs, titulo="Histórico", titulo_head=titulo_head)
 
 
@@ -119,7 +121,7 @@ def alterar_seller(identifier):
         email = request.form.get('email')
         phone = request.form.get('phone')
         seller = Seller(name, email, phone)
-        ct_seller.update_seller(identifier, seller)
+        SellerController.update(identifier, seller)
         return redirect('/listar_sellers')
     return render_template('create_seller.html', identifier = identifier, titulo='Alteração de Seller', titulo_head=titulo_head)
 
@@ -138,7 +140,7 @@ def alterar_produto(identifier):
         description = request.form.get('description')
         price = request.form.get('price')
         product = Product(name, description, price)
-        ct_product.update_product(identifier, product)
+        ProductController.update(identifier, product)
         return redirect('/listar_produtos')
     return render_template('create_product.html', identifier = identifier, titulo='Alteração de Produto', titulo_head=titulo_head)
 
@@ -150,12 +152,12 @@ def delete_marketplace(identifier):
 
 @app.route('/delete_seller/<identifier>')
 def delete_seller(identifier):
-    ct_seller.delete_seller(identifier)
+    SellerController.delete(identifier)
     return redirect('/listar_sellers')
 
 @app.route('/delete_product/<identifier>')
 def delete_product(identifier):
-    ct_product.delete_product(identifier)
+    ProductController.delete(identifier)
     return redirect('/listar_produtos')
 
 @app.route('/deletar_categoria/<identifier>')
