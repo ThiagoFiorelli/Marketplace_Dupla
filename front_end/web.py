@@ -135,8 +135,7 @@ def lista_categorias():
 
 @app.route('/listar_logs')
 def lista_logs():
-    logs: Log = ac_log.read_logs()
-    
+    logs = ac_log.read_logs()
     return render_template('list_logs.html', logs=logs, titulo="Histórico", titulo_head=titulo_head)
 
 

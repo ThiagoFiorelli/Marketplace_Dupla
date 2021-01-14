@@ -19,7 +19,6 @@ def read_marketplaces() -> list:
             mkp = Marketplace(i[1], i[2])
             mkp.id = i[0]
             mkts.append(mkp)
-        conn.commit()
         return mkts
 
 def update(marketplace: Marketplace)->None:
@@ -42,7 +41,6 @@ def search_by_id(id:int)->Marketplace:
         cursor= conn.cursor()
         cursor.execute(f"SELECT * FROM marketplaces WHERE id={id}")
         mkp=cursor.fetchone()
-        conn.commit()
     marketplace = Marketplace(mkp[1], mkp[2])
     marketplace.id = mkp[0]
     return marketplace

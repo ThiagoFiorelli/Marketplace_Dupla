@@ -19,6 +19,4 @@ def read_logs() -> list:
         for i in list_log:
             log = Log(i[1], i[2], i[3])
             logs.append(log)
-
-        conn.commit()
         return logs

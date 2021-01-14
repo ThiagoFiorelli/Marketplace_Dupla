@@ -19,7 +19,6 @@ def read_categories() -> list:
             cat = Category(i[1], i[2])
             cat.id = i[0]
             lista.append(cat)
-        conn.commit()
         return lista
 
 def update(category: Category)->None:
@@ -42,7 +41,6 @@ def search_by_id(id:int)->Category:
         cursor= conn.cursor()
         cursor.execute(f"SELECT * FROM category WHERE id={id}")
         cat=cursor.fetchone()
-        conn.commit()
     category = Category(cat[1], cat[2])
     category.id = cat[0]
     return category
