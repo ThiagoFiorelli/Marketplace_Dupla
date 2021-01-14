@@ -1,9 +1,8 @@
 from back_end.models.seller import Seller
-from back_end.dao.connection import connect_db
+from back_end.dao.connection import Connection
 
 def add_seller(seller: Seller) -> None:
-    db = connect_db()
-    with db as conn:
+    with Connection() as conn:
         cursor = conn.cursor()
         name = seller.get_name()
         email = seller.get_email()
@@ -13,8 +12,7 @@ def add_seller(seller: Seller) -> None:
         conn.commit()
 
 def read_sellers(search: str = None) -> list:
-    db = connect_db()
-    with db as conn:
+    with Connection() as conn:
         cursor = conn.cursor()
         if search == None:
             cursor.execute("SELECT * FROM seller;")
@@ -29,15 +27,13 @@ def read_sellers(search: str = None) -> list:
     return sellers
 
 def delete(id: int):
-    db = connect_db()
-    with db as conn:
+    with Connection() as conn:
         cursor = conn.cursor()
         cursor.execute(f"DELETE FROM seller WHERE id = {id};")
         conn.commit()
 
 def update(id: int, seller):
-    db = connect_db()
-    with db as conn:
+    with Connection() as conn:
         cursor = conn.cursor()
         name = seller.get_name()
         email = seller.get_email()
