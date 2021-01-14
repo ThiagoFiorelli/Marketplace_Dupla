@@ -26,8 +26,6 @@ def read_products(search: str = None) -> list:
         for prod in list_prod:
             product = Product(prod[1], prod[2], prod[3], prod[0])
             products.append(product)
-
-        conn.commit()
     return products
 
 def delete(id: int):

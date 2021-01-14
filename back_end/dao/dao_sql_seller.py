@@ -26,7 +26,6 @@ def read_sellers(search: str = None) -> list:
         for i in list_seller:
             seller = Seller(i[1], i[2], i[3], i[0])
             sellers.append(seller)
-        conn.commit()
     return sellers
 
 def delete(id: int):
