@@ -6,12 +6,16 @@
     <thead>
         <th>Name</th>
         <th>Description</th>
+        <th colspan="2">Ações</th>
+
     </thead>
     <tbody>
         {% for category in categories %}
         <tr>
             <td>{{category.name}}</td>
             <td>{{category.description}}</td>
+            <td><a href="/alterar_categoria/{{category.id}}">Editar</a></td>
+            <td><a href="/deletar_categoria/{{category.id}}">Excluir</a></td>
         </tr>
         {%endfor%}
     </tbody>
