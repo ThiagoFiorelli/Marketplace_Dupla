@@ -1,4 +1,3 @@
-import psycopg2
 from ..models.Marketplace import Marketplace
 from back_end.dao.connection import connect_db
 

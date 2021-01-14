@@ -1,22 +1,32 @@
 {% extends 'template.html' %}
 {% block titulo %} - Produto {% endblock %}
 {% block corpo %} 
+<div>
+    <form action='/listar_produtos' method="POST">
+        <input placeholder='Pesquisa' name='search' />
+        <input type="submit" />
+    </form>
+</div>
+<div>
+<div>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{product.get_name()}}</td>
+            <td>{{product.get_description()}}</td>
+            <td>{{product.get_price()}}</td>
+            <td><a href="/delete_product/{{product.get_identifier()}}">Deletar</a></td>
+            <td><a href="/alterar_produto/{{product.get_identifier()}}">Alterar</a></td>
+        </tr>
+        {%endfor%}
+    </table>
 
-<table class="table">
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-    </tr>
-    {% for product in products %}
-    <tr>
-        <td>{{product.get_name()}}</td>
-        <td>{{product.get_description()}}</td>
-        <td>{{product.get_price()}}</td>
-    </tr>
-    {%endfor%}
-</table>
-
-<a href='/'>Voltar</a>
+    <a href='/'>Voltar</a>
+</div>
 
 {% endblock %}
