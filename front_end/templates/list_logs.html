@@ -10,10 +10,10 @@
     </thead>
     <tbody>
         {% for log in logs %}
-            {% if 'Cadastro' in log['mensagem'] %}
+            {% if 'Cadastro' in log.get_message() %}
                 {% set valor_classe = "table-success" %}
             {% endif %}
-            {% if 'Listado' in log['mensagem'] %}
+            {% if 'Listado' in log.get_message() %}
                 {% set valor_classe = "table-info" %}
             {% endif %}
             <tr class={{valor_classe}}>
