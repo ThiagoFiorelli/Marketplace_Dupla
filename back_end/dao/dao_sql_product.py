@@ -1,9 +1,8 @@
 from back_end.models.product import Product
-from back_end.dao.connection import connect_db
+from back_end.dao.connection import Connection
 
 def add_product(product: Product) -> None:
-    db = connect_db()
-    with db as conn:
+    with Connection as conn:
         cursor = conn.cursor()
         name = product.get_name()
         description = product.get_description()
@@ -13,8 +12,7 @@ def add_product(product: Product) -> None:
         conn.commit()
 
 def read_products(search: str = None) -> list:
-    db = connect_db()
-    with db as conn:
+    with Connection as conn:
         cursor = conn.cursor()
         if search == None:
             cursor.execute("SELECT * FROM products")
@@ -29,15 +27,13 @@ def read_products(search: str = None) -> list:
     return products
 
 def delete(id: int):
-    db = connect_db()
-    with db as conn:
+    with Connection as conn:
         cursor = conn.cursor()
         cursor.execute(f"DELETE FROM products WHERE id = {id};")
         conn.commit()
 
 def update(id: int, product):
-    db = connect_db()
-    with db as conn:
+    with Connection as conn:
         cursor = conn.cursor()
         name = product.get_name()
         description = product.get_description()
