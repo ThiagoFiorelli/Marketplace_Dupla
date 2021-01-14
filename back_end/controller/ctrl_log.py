@@ -1,17 +1,11 @@
-from datetime import datetime
 import sys
 sys.path.append('.')
 
-import back_end.dao.dao_sql_log as dao_log
 from back_end.models.log import Log
+from back_end.dao.log_dao import LogDao
+from back_end.controller.base_controller import BaseController
 
-def create_log(dado:str):
-    hora_atual= datetime.now().strftime('%H:%M:%S')
-    data_atual= datetime.now().strftime('%d/%m/%Y')
-    log= Log(hora_atual, data_atual, dado)
-    dao_log.add_log(log)
-
-def list_log() -> list:
-    list_aux= []
-    list_aux= add_log.read_logs()
-    return list_aux
+class LogController(BaseController):
+    def __init__(self) -> None:
+        self.__dao = LogDao()
+        super().__init__(self.__dao)
