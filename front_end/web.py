@@ -175,17 +175,17 @@ def delete_seller(identifier):
     LogController().create(log)
     return redirect('/listar_sellers')
 
+@app.route('/deletar_categoria/<identifier>')
+def delete_category(identifier):
+    ct_category.delete_category(identifier)
+    return redirect(url_for('lista_categorias'), code=302)
+
 @app.route('/delete_product/<identifier>')
 def delete_product(identifier):
     ProductController().delete(identifier)
     log = Log(f'Deletado produto com id "{identifier}".')
     LogController().create(log)
     return redirect('/listar_produtos')
-
-@app.route('/deletar_categoria/<identifier>')
-def delete_category(identifier):
-    ct_category.delete_category(identifier)
-    return redirect(url_for('lista_categorias'), code=302)
 
 
 @app.route('/')
