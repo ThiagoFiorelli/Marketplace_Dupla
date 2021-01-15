@@ -123,7 +123,8 @@ def alterar_seller(identifier):
         seller = Seller(name, email, phone, identifier)
         SellerController().update(seller)
         return redirect('/listar_sellers')
-    return render_template('create_seller.html', identifier = identifier, titulo='Alteração de Seller', titulo_head=titulo_head)
+    seller = SellerController().read_by_id(identifier)
+    return render_template('create_seller.html', identifier = identifier, seller = seller, titulo='Alteração de Seller', titulo_head=titulo_head)
 
 @app.route('/alterar_categoria/<identifier>', methods=['GET', 'POST'])
 def altera_categorias(identifier):

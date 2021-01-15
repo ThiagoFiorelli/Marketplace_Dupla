@@ -3,13 +3,19 @@
 {% block corpo %} 
 
 {% if titulo == 'Alteração de Seller' %}
+{% set name = seller.get_name()  %}
+{% set email = seller.get_email()  %}
+{% set phone = seller.get_phone()  %}
 <form action="/alterar_seller/{{identifier}}" method="POST">
 {% else %}
+{% set name = '' %}
+{% set email = '' %}
+{% set phone = '' %}
 <form action="/cadastrar_seller">
 {% endif %}
-    <label>Nome :</label> <input type="text" name="name" id="name"/>
-    <label>Telefone :</label> <input type="tel" name="phone" placeholder = "41-999999999" pattern="[0-9]{2}-[0-9]{9}" required id="phone"/>
-    <label>Email :</label> <input type="email" name="email" placeholder = "exemplo@exemplo.com" required id="email"/>
+    <label>Nome :</label> <input type="text" name="name" id="name" value="{{name}}"/>
+    <label>Telefone :</label> <input type="tel" name="phone" placeholder = "41-999999999" pattern="[0-9]{2}-[0-9]{9}" required id="phone" value="{{phone}}"/>
+    <label>Email :</label> <input type="email" name="email" placeholder = "exemplo@exemplo.com" required id="email" value="{{email}}"/>
     <input type='submit' value='Criar' />
 </form>
 <a href='/'>Voltar</a>
