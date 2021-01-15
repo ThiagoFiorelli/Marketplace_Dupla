@@ -82,12 +82,11 @@ def lista_marketplaces():
 def lista_sellers():
     if request.method == 'POST':
         search = request.form.get('search')
-        sellers = SellerController().read(search)
-        log = Log(f'Listando sellers com o filtro "{search}".')
+        log = Log(f'Listado sellers com o filtro "{search}".')
     else:
         search = None
-        sellers = SellerController().read(search)
-        log = Log('Listando todos os sellers.')
+        log = Log('Listado todos os sellers.')
+    sellers = SellerController().read(search)
     LogController().create(log)
     return render_template('list_sellers.html', sellers=sellers, titulo='Sellers', titulo_head=titulo_head)
 
@@ -100,20 +99,24 @@ def lista_categorias():
 def lista_produtos():
     if request.method == 'POST':
         search = request.form.get('search')
-        products = ProductController().read(search)
-        log = Log(f'Listando produtos com o filtro "{search}".')
+        log = Log(f'Listado produtos com o filtro "{search}".')
     else:
         search = None
-        products = ProductController().read(search)
-        log = Log('Listando todos os produtos.')
+        log = Log('Listado todos os produtos.')
+    products = ProductController().read(search)
     LogController().create(log)
     return render_template('list_products.html', products=products, titulo="Produtos", titulo_head=titulo_head)
 
-@app.route('/listar_logs')
+@app.route('/listar_logs', methods=['GET', 'POST'])
 def lista_logs():
-    search = None
-    log = LogController()
-    logs = log.read(search)
+    if request.method == 'POST':
+        search = request.form.get('search')
+        log = Log(f'Listado logs com o filtro "{search}".')
+    else:
+        search = None
+        log = Log(f'Listado todos os logs.')
+    logs = LogController().read(search)
+    LogController().create(log)
     return render_template('list_logs.html', logs=logs, titulo="Histórico", titulo_head=titulo_head)
 
 
@@ -133,7 +136,7 @@ def alterar_seller(identifier):
         phone = request.form.get('phone')
         seller = Seller(name, email, phone)
         SellerController().update(identifier, seller)
-        log = Log(f'Alterando informações de seller com id "{identifier}".')
+        log = Log(f'Alterado informações de seller com id "{identifier}".')
         LogController().create(log)
         return redirect('/listar_sellers')
     return render_template('create_seller.html', identifier = identifier, titulo='Alteração de Seller', titulo_head=titulo_head)
@@ -154,7 +157,7 @@ def alterar_produto(identifier):
         price = request.form.get('price')
         product = Product(name, description, price)
         ProductController().update(identifier, product)
-        log = Log(f'Alterando informações de produto com id "{identifier}".')
+        log = Log(f'Alterado informações de produto com id "{identifier}".')
         LogController().create(log)
         return redirect('/listar_produtos')
     return render_template('create_product.html', identifier = identifier, titulo='Alteração de Produto', titulo_head=titulo_head)
@@ -168,14 +171,14 @@ def delete_marketplace(identifier):
 @app.route('/delete_seller/<identifier>')
 def delete_seller(identifier):
     SellerController().delete(identifier)
-    log = Log(f'Deletando seller com id "{identifier}".')
+    log = Log(f'Deletado seller com id "{identifier}".')
     LogController().create(log)
     return redirect('/listar_sellers')
 
 @app.route('/delete_product/<identifier>')
 def delete_product(identifier):
     ProductController().delete(identifier)
-    log = Log(f'Deletando produto com id "{identifier}".')
+    log = Log(f'Deletado produto com id "{identifier}".')
     LogController().create(log)
     return redirect('/listar_produtos')
 
