@@ -86,7 +86,7 @@ def lista_sellers():
     else:
         search = None
         log = Log('Listado todos os sellers.')
-    sellers = SellerController().read(search)
+    sellers = SellerController().read_all(search)
     LogController().create(log)
     return render_template('list_sellers.html', sellers=sellers, titulo='Sellers', titulo_head=titulo_head)
 
@@ -103,7 +103,7 @@ def lista_produtos():
     else:
         search = None
         log = Log('Listado todos os produtos.')
-    products = ProductController().read(search)
+    products = ProductController().read_all(search)
     LogController().create(log)
     return render_template('list_products.html', products=products, titulo="Produtos", titulo_head=titulo_head)
 
@@ -115,7 +115,7 @@ def lista_logs():
     else:
         search = None
         log = Log(f'Listado todos os logs.')
-    logs = LogController().read(search)
+    logs = LogController().read_all(search)
     LogController().create(log)
     return render_template('list_logs.html', logs=logs, titulo="Histórico", titulo_head=titulo_head)
 
@@ -134,8 +134,8 @@ def alterar_seller(identifier):
         name = request.form.get('name')
         email = request.form.get('email')
         phone = request.form.get('phone')
-        seller = Seller(name, email, phone)
-        SellerController().update(identifier, seller)
+        seller = Seller(name, email, phone, identifier)
+        SellerController().update(seller)
         log = Log(f'Alterado informações de seller com id "{identifier}".')
         LogController().create(log)
         return redirect('/listar_sellers')
@@ -155,8 +155,8 @@ def alterar_produto(identifier):
         name = request.form.get('name')
         description = request.form.get('description')
         price = request.form.get('price')
-        product = Product(name, description, price)
-        ProductController().update(identifier, product)
+        product = Product(name, description, price, identifier)
+        ProductController().update(product)
         log = Log(f'Alterado informações de produto com id "{identifier}".')
         LogController().create(log)
         return redirect('/listar_produtos')
