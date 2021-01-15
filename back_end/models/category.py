@@ -3,9 +3,10 @@ class Category:
     __name: str
     __description: str
 
-    def __init__(self, name:str, description:str):
+    def __init__(self, name:str, description:str, identifier: int = None):
         self.__name = name
         self.__description = description
+        self.__id = identifier
 
     @property
     def id(self)->int:

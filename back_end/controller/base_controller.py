@@ -1,14 +1,14 @@
 from ctrl_log import LogController
 
 class BaseController:
-    def __init__(self, dao, tipo)->None:
+    def __init__(self, dao, tipo:str)->None:
         self.__dao = dao
         self.__tipo = tipo
         self.__log = LogController()
 
     def create(self, model: object)->None:
         self.__dao.create(model)
-        self.__log.create(f'Cadastro de {self.__tipo}: "{model.get_name()}" na database.')
+        self.__log.create(f'Cadastro de {self.__tipo}: "{model.name}" na database.')
         
 
     def read_by_id(self,id:int)-> object:
