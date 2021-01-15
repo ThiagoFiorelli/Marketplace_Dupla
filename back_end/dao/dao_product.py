@@ -1,4 +1,4 @@
-from back_end.models.baseDao import BaseDao
+from back_end.dao.base_dao import BaseDao
 from back_end.models.product import Product
 
 class ProductDao(BaseDao):
@@ -7,14 +7,14 @@ class ProductDao(BaseDao):
         description = product.get_description()
         price = product.get_price()
 
-        query = f"INSERT INTO product (name_prod, description, price) values('{name}','{description}', '{price}');"
+        query = f"INSERT INTO products (name_prod, description, price) values('{name}','{description}', {price});"
         super().execute(query)
 
     def read(self, search: str = None) -> list[Product]:
         if search == None:
-            query = "SELECT * FROM product;"
+            query = "SELECT * FROM products;"
         else:
-            query = f"SELECT * FROM product WHERE name_prod LIKE '%{search}%' OR description LIKE '%{search}%' OR price LIKE '%{search}%';"
+            query = f"SELECT * FROM products WHERE name_prod LIKE '%{search}%' OR description LIKE '%{search}%';"
         products = []
         list_product = super().read(query)
 
@@ -24,7 +24,7 @@ class ProductDao(BaseDao):
         return products
     
     def read_by_id(self, id: int) -> Product:
-        query = f"SELECT * FROM product WHERE id = {id};"
+        query = f"SELECT * FROM products WHERE id = {id};"
         list_product = super().read(query)[0]
         product = Product(list_product[1], list_product[2], list_product[3], list_product[0])
         return product

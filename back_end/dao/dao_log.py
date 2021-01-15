@@ -1,4 +1,4 @@
-from back_end.models.baseDao import BaseDao
+from back_end.dao.base_dao import BaseDao
 from back_end.models.log import Log
 
 class LogDao(BaseDao):
@@ -7,15 +7,18 @@ class LogDao(BaseDao):
         date = log.get_date()
         message = log.get_message()
 
-        query = f"INSERT INTO log (hora, data, menssagem) values('{hora}','{date}', '{message}');"
+        query = f"INSERT INTO log (hora, data, mensagem) values('{hora}','{date}', '{message}');"
         super().execute(query)
 
-    def read(self) -> list[Log]:
-        query = "SELECT * FROM log;"
+    def read(self, search: str = None) -> list[Log]:
+        if search == None:
+            query = "SELECT * FROM log;"
+        else:
+            query = f"SELECT * FROM log WHERE mensagem LIKE '%{search}%';"
         logs = []
         list_log = super().read(query)
 
         for log in list_log:
-            log = Log(log[1], log[2], log[3], log[0])
+            log = Log(log[3], log[1], log[2], log[0],)
             logs.append(log)
         return logs

@@ -1,4 +1,4 @@
-from back_end.models.baseDao import BaseDao
+from back_end.dao.base_dao import BaseDao
 from back_end.models.seller import Seller
 
 class SellerDao(BaseDao):
