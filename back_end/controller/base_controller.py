@@ -8,7 +8,7 @@ class BaseController:
 
     def create(self, model: object)->None:
         self.__dao.create(model)
-        self.__log.create(f'Cadastro de {self.__tipo}: "{model.name}" na database.')
+        self.__log.create(f'Cadastro de {self.__tipo} na database.')
         
 
     def read_by_id(self,id:int)-> object:
