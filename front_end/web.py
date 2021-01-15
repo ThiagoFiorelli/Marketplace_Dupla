@@ -143,7 +143,8 @@ def alterar_produto(identifier):
         product = Product(name, description, price, identifier)
         ProductController().update(product)
         return redirect('/listar_produtos')
-    return render_template('create_product.html', identifier = identifier, titulo='Alteração de Produto', titulo_head=titulo_head)
+    product = ProductController().read_by_id(identifier)
+    return render_template('create_product.html', identifier = identifier, product = product, titulo='Alteração de Produto', titulo_head=titulo_head)
 
 
 @app.route('/deletar_marketplace/<identifier>')
