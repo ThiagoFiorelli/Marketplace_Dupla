@@ -1,12 +1,14 @@
+from datetime import datetime
+
 class Log:
     __identifier: int
     __hour: str
     __date: str
     __message: str
 
-    def __init__(self, hour: str, date: str, message: str, identifier: int = None):
-        self.__hour = hour
-        self.__date = date
+    def __init__(self, message: str, hour: str = None, date: str = None, identifier: int = None):
+        self.__hour = datetime.now().strftime('%H:%M:%S')
+        self.__date = datetime.now().strftime('%d:%m:%Y')
         self.__message = message
         self.__identifier = identifier
     
