@@ -26,11 +26,12 @@ class ProductDao(BaseDao):
     def read_by_id(self, id: int) -> Product:
         query = f"SELECT * FROM products WHERE id = {id};"
         list_product = super().read_all(query)[0]
-        product = Product(list_product[1], list_product[2], list_product[3], list_product[0])
+        price = float(list_product[3].strip("$"))
+        product = Product(list_product[1], list_product[2], price, list_product[0])
         return product
 
     def delete(self, id: int) -> None:
-        query = f"DELETE FROM product WHERE id = {id};"
+        query = f"DELETE FROM products WHERE id = {id};"
         super().execute(query)
 
     def update(self, product: Product) -> None:
@@ -38,5 +39,5 @@ class ProductDao(BaseDao):
         name = product.get_name()
         description = product.get_description()
         price = product.get_price()
-        query = f"UPDATE product set name_product = '{name}', description = '{description}', price = '{price}' WHERE id = {id};"
+        query = f"UPDATE products set name_prod = '{name}', description = '{description}', price = '{price}' WHERE id = {id};"
         super().execute(query)

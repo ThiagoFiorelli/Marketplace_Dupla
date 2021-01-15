@@ -123,7 +123,8 @@ def alterar_seller(identifier):
         seller = Seller(name, email, phone, identifier)
         SellerController().update(seller)
         return redirect('/listar_sellers')
-    return render_template('create_seller.html', identifier = identifier, titulo='Alteração de Seller', titulo_head=titulo_head)
+    seller = SellerController().read_by_id(identifier)
+    return render_template('create_seller.html', identifier = identifier, seller = seller, titulo='Alteração de Seller', titulo_head=titulo_head)
 
 @app.route('/alterar_categoria/<identifier>', methods=['GET', 'POST'])
 def altera_categorias(identifier):
@@ -142,7 +143,8 @@ def alterar_produto(identifier):
         product = Product(name, description, price, identifier)
         ProductController().update(product)
         return redirect('/listar_produtos')
-    return render_template('create_product.html', identifier = identifier, titulo='Alteração de Produto', titulo_head=titulo_head)
+    product = ProductController().read_by_id(identifier)
+    return render_template('create_product.html', identifier = identifier, product = product, titulo='Alteração de Produto', titulo_head=titulo_head)
 
 
 @app.route('/deletar_marketplace/<identifier>')

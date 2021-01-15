@@ -11,5 +11,5 @@ class LogController:
     def create(self, model: object) -> None:
         self.__dao.create(model)
     
-    def read_all(self) -> list[Log]:
-        return self.__dao.read_all()
+    def read_all(self, search: str = None) -> list[Log]:
+        return self.__dao.read_all(search)
