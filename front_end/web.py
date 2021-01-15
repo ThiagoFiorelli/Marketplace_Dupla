@@ -154,7 +154,7 @@ def altera_marketplace(identifier):
         mkp_name = request.args.get('name')
         mkp_desc = request.args.get('description')
         mkp = Marketplace(mkp_name, mkp_desc, identifier)
-        MarketplaceController.update(identifier, mkp)
+        MarketplaceController.update(mkp)
         return redirect('listar_marketplaces')
     return render_template('create_marketplace.html', identifier = identifier, titulo='Alteração de Marketplace', titulo_head=titulo_head)
 
@@ -170,7 +170,7 @@ def altera_categorias(identifier):
         cat_name = request.args.get('name')
         cat_desc = request.args.get('description')
         cat = Category(cat_name, cat_desc, identifier)
-        CategoryController.update(identifier, cat)
+        CategoryController.update(cat)
         return redirect('/listar_categorias')
     return render_template('create_category.html', identifier = identifier, titulo='Alteração de Categoria', titulo_head=titulo_head)
 
