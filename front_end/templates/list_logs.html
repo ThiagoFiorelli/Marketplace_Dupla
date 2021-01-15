@@ -1,29 +1,42 @@
 {% extends 'template.html' %}
 {% block titulo %} - Histórico {% endblock %}
 {% block corpo %} 
-
-<table class="table">
-    <thead>
-        <th>Hora</th>
-        <th>Data</th>
-        <th>Descrição</th>
-    </thead>
-    <tbody>
-        {% for log in logs %}
-            {% if 'Cadastro' in log.get_message() %}
-                {% set valor_classe = "table-success" %}
-            {% endif %}
-            {% if 'Listado' in log.get_message() %}
-                {% set valor_classe = "table-info" %}
-            {% endif %}
-            <tr class={{valor_classe}}>
-                <td>{{log.get_hour()}}</td>
-                <td>{{log.get_date()}}</td>
-                <td>{{log.get_message()}}</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div>
+    <form action='/listar_logs' method="POST">
+        <input placeholder='Pesquisa' name='search' />
+        <input type="submit" />
+    </form>
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <th>Hora</th>
+            <th>Data</th>
+            <th>Descrição</th>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+                {% if 'Cadastro' in log.get_message() %}
+                    {% set valor_classe = "table-success" %}
+                {% endif %}
+                {% if 'Listado' in log.get_message() %}
+                    {% set valor_classe = "table-info" %}
+                {% endif %}
+                {% if 'Deletado' in log.get_message() %}
+                    {% set valor_classe = "table-danger" %}
+                {% endif %}
+                {% if 'Alterado' in log.get_message() %}
+                    {% set valor_classe = "table-warning" %}
+                {% endif %}
+                <tr class={{valor_classe}}>
+                    <td>{{log.get_hour()}}</td>
+                    <td>{{log.get_date()}}</td>
+                    <td>{{log.get_message()}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 <a href='/'>Voltar</a>
 
