@@ -9,8 +9,7 @@ class MarketplaceDao(BaseDao):
     def read_by_id(self, id:int)->Marketplace:
         query = f"SELECT * FROM marketplaces WHERE id={id};"
         result = super().read(query)[0]
-        mkp = Marketplace(result[1], result[2])
-        mkp.id = result[0]
+        mkp = Marketplace(result[1], result[2], result[0])
         return mkp
 
     def read_all(self)->list:
@@ -18,8 +17,7 @@ class MarketplaceDao(BaseDao):
         result_list = super().read(query)
         marketplaces = []
         for result in result_list:
-            mkp = Marketplace(result[1], result[2])
-            mkp.id = result[0]
+            mkp = Marketplace(result[1], result[2], result[0])
             marketplaces.append(mkp)
         return marketplaces
     
