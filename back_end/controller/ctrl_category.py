@@ -4,6 +4,13 @@ sys.path.append('.')
 import back_end.dao.dao_sql_category as dao_ac
 import back_end.controller.ctrl_log as ac_log
 from ..models.Category import Category
+from .base_controller import BaseController
+
+
+class CategoryController(BaseController):
+    def __init__(self):
+        self.__dao = dao_ac.Category()
+        super().__init__(self.__dao)
 
 def create_category(cat: Category)->None:
     dao_ac.add_category(cat)
