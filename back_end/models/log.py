@@ -7,8 +7,12 @@ class Log:
     __message: str
 
     def __init__(self, message: str, hour: str = None, date: str = None, identifier: int = None):
-        self.__hour = datetime.now().strftime('%H:%M:%S')
-        self.__date = datetime.now().strftime('%d:%m:%Y')
+        if hour == None:
+            self.__hour = datetime.now().strftime('%H:%M:%S')
+            self.__date = datetime.now().strftime('%d:%m:%Y')
+        else:
+            self.__hour = hour
+            self.__date = date
         self.__message = message
         self.__identifier = identifier
     
