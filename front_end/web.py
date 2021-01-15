@@ -76,7 +76,7 @@ def cadastro_Seller():
 
 @app.route('/listar_marketplaces')
 def lista_marketplaces():
-    marketplaces = ct_marketplace.list_marketplaces()
+    marketplaces = MarketplaceController.read_all()
     return render_template('list_marketplaces.html', marketplaces=marketplaces, titulo='Marketplaces',
                            titulo_head=titulo_head)
 
@@ -134,7 +134,7 @@ def alterar_produto(identifier):
 
 @app.route('/listar_categorias')
 def lista_categorias():
-    list_cat = ct_category.list_categories()
+    list_cat = CategoryController.read_all()
     return render_template('list_categories.html', categories=list_cat, titulo="Categorias", titulo_head=titulo_head)
 
 @app.route('/listar_logs')
@@ -145,28 +145,34 @@ def lista_logs():
 
 @app.route('/deletar_marketplace/<identifier>')
 def delete_marketplace(identifier):
-    ct_marketplace.delete_marketplace(identifier)
+    MarketplaceController.delete(identifier)
     return redirect(url_for('lista_marketplaces'), code=302)
 
 @app.route('/alterar_marketplace/<identifier>', methods=['GET', 'POST'])
 def altera_marketplace(identifier):
     if request.method == 'POST':
-        info = request.form
-        ct_marketplace.update_marketplace(identifier, info)
+        mkp_name = request.args.get('name')
+        mkp_desc = request.args.get('description')
+        mkp = Marketplace(mkp_name, mkp_desc)
+        mkp.id = identifier
+        MarketplaceController.update(identifier, mkp)
         return redirect('listar_marketplaces')
     return render_template('create_marketplace.html', identifier = identifier, titulo='Alteração de Marketplace', titulo_head=titulo_head)
 
 
 @app.route('/deletar_categoria/<identifier>')
 def delete_category(identifier):
-    ct_category.delete_category(identifier)
+    CategoryController.delete_category(identifier)
     return redirect(url_for('lista_categorias'), code=302)
 
 @app.route('/alterar_categoria/<identifier>', methods=['GET', 'POST'])
 def altera_categorias(identifier):
     if request.method == 'POST':
-        info = request.form
-        ct_category.update_category(identifier, info)
+        cat_name = request.args.get('name')
+        cat_desc = request.args.get('description')
+        cat = Category(cat_name, cat_desc)
+        cat.id = identifier
+        CategoryController.update(identifier, cat)
         return redirect('/listar_categorias')
     return render_template('create_category.html', identifier = identifier, titulo='Alteração de Categoria', titulo_head=titulo_head)
 
