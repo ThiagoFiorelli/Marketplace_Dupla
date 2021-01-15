@@ -33,7 +33,8 @@ class ProductDao(BaseDao):
         query = f"DELETE FROM product WHERE id = {id};"
         super().execute(query)
 
-    def update(self, id: int, product: Product) -> None:
+    def update(self, product: Product) -> None:
+        id = product.get_identifier()
         name = product.get_name()
         description = product.get_description()
         price = product.get_price()

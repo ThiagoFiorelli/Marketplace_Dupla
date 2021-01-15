@@ -33,7 +33,8 @@ class SellerDao(BaseDao):
         query = f"DELETE FROM seller WHERE id = {id};"
         super().execute(query)
 
-    def update(self, id: int, seller: Seller) -> None:
+    def update(self, seller: Seller) -> None:
+        id = seller.get_identifier()
         name = seller.get_name()
         email = seller.get_email()
         phone = seller.get_phone()

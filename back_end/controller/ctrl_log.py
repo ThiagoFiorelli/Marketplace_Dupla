@@ -1,7 +1,6 @@
 import sys
 sys.path.append('.')
 
-from back_end.models.log import Log
 from back_end.dao.dao_log import LogDao
 from back_end.controller.base_controller import BaseController
 
