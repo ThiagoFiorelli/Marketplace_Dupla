@@ -3,7 +3,7 @@ from .base_dao import BaseDao
 
 class MarketplaceDao(BaseDao):
     def create(self, model:Marketplace) -> None:
-        query = f"INSERT INTO marketplaces (name_mktplaces, description) values('{mkp.name}','{mkp.description}');"
+        query = f"INSERT INTO marketplaces (name_mktplaces, description) values('{model.name}','{model.description}');"
         super().execute(query)
 
     def read_by_id(self, id:int)->Marketplace:
