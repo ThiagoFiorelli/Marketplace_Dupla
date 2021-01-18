@@ -16,14 +16,18 @@ class Log:
         self.__message = message
         self.__identifier = identifier
     
-    def get_identifier(self) -> int:
+    @property
+    def identifier(self) -> int:
         return self.__identifier
     
-    def get_hour(self) -> str:
+    @property
+    def hour(self) -> str:
         return self.__hour
     
-    def get_date(self) -> str:
+    @property
+    def date(self) -> str:
         return self.__date
     
-    def get_message(self) -> str:
+    @property
+    def message(self) -> str:
         return self.__message
