@@ -16,7 +16,7 @@ class ProductDao(BaseDao):
         else:
             query = f"SELECT * FROM products WHERE name_prod LIKE '%{search}%' OR description LIKE '%{search}%';"
         products = []
-        list_product = super().read_all(query)
+        list_product = super().read(query)
 
         for product in list_product:
             product = Product(product[1], product[2], product[3], product[0])
@@ -25,7 +25,7 @@ class ProductDao(BaseDao):
     
     def read_by_id(self, id: int) -> Product:
         query = f"SELECT * FROM products WHERE id = {id};"
-        list_product = super().read_all(query)[0]
+        list_product = super().read(query)[0]
         price = float(list_product[3].strip("$"))
         product = Product(list_product[1], list_product[2], price, list_product[0])
         return product

@@ -16,7 +16,7 @@ class SellerDao(BaseDao):
         else:
             query = f"SELECT * FROM seller WHERE name_seller LIKE '%{search}%' OR email LIKE '%{search}%' OR phone LIKE '%{search}%';"
         sellers = []
-        list_seller = super().read_all(query)
+        list_seller = super().read(query)
 
         for seller in list_seller:
             seller = Seller(seller[1], seller[2], seller[3], seller[0])
@@ -25,7 +25,7 @@ class SellerDao(BaseDao):
     
     def read_by_id(self, id: int) -> Seller:
         query = f"SELECT * FROM seller WHERE id = {id};"
-        list_seller = super().read_all(query)[0]
+        list_seller = super().read(query)[0]
         seller = Seller(list_seller[1], list_seller[2], list_seller[3], list_seller[0])
         return seller
 

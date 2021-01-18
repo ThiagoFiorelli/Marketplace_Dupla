@@ -123,7 +123,7 @@ def alterar_produto(identifier):
         product = Product(name, description, price, identifier)
         ProductController().update(product)
         return redirect('/listar_produtos')
-          product = ProductController().read_by_id(identifier)
+    product = ProductController().read_by_id(identifier)
     return render_template('create_product.html', identifier = identifier, product = product, titulo='Alteração de Produto', titulo_head=titulo_head)
       
 @app.route('/listar_categorias')

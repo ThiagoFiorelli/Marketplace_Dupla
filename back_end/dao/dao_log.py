@@ -16,7 +16,7 @@ class LogDao(BaseDao):
         else:
             query = f"SELECT * FROM log WHERE mensagem LIKE '%{search}%';"
         logs = []
-        list_log = super().read_all(query)
+        list_log = super().read(query)
 
         for log in list_log:
             log = Log(log[3], log[1], log[2], log[0],)

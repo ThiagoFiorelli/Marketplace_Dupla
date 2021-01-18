@@ -1,4 +1,4 @@
-from ctrl_log import LogController
+from .ctrl_log import LogController
 
 class BaseController:
     def __init__(self, dao, tipo:str)->None:
@@ -16,8 +16,8 @@ class BaseController:
         self.__log.create(f'Listagem de {self.__tipo} de id {id} da database.')
         return lista
 
-    def read_all(self)->list:
-        lista = self.__dao.read_all()
+    def read_all(self, search: str = None)->list:
+        lista = self.__dao.read_all(search)
         self.__log.create(f'Listagem de {self.__tipo} da database.')
         return lista
 
