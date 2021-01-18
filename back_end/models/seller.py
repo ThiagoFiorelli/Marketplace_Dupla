@@ -10,14 +10,18 @@ class Seller:
         self.__email = email
         self.__phone = phone
     
-    def get_identifier(self) -> int:
+    @property
+    def identifier(self) -> int:
         return self.__identifier
 
-    def get_name(self) -> str:
+    @property
+    def name(self) -> str:
         return self.__name
 
-    def get_email(self) -> str:
+    @property
+    def email(self) -> str:
         return self.__email
     
-    def get_phone(self) -> str:
+    @property
+    def phone(self) -> str:
         return self.__phone
