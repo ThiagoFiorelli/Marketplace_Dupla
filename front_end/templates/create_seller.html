@@ -3,9 +3,9 @@
 {% block corpo %} 
 
 {% if titulo == 'Alteração de Seller' %}
-{% set name = seller.get_name()  %}
-{% set email = seller.get_email()  %}
-{% set phone = seller.get_phone()  %}
+{% set name = seller.name  %}
+{% set email = seller.email  %}
+{% set phone = seller.phone  %}
 <form action="/alterar_seller/{{identifier}}" method="POST">
 {% else %}
 {% set name = '' %}

@@ -3,9 +3,9 @@ from back_end.models.product import Product
 
 class ProductDao(BaseDao):
     def create(self, product: Product) -> None:
-        name = product.get_name()
-        description = product.get_description()
-        price = product.get_price()
+        name = product.name
+        description = product.description
+        price = product.price
 
         query = f"INSERT INTO products (name_prod, description, price) values('{name}','{description}', {price});"
         super().execute(query)
@@ -35,9 +35,9 @@ class ProductDao(BaseDao):
         super().execute(query)
 
     def update(self, product: Product) -> None:
-        id = product.get_identifier()
-        name = product.get_name()
-        description = product.get_description()
-        price = product.get_price()
+        id = product.identifier
+        name = product.name
+        description = product.description
+        price = product.price
         query = f"UPDATE products set name_prod = '{name}', description = '{description}', price = '{price}' WHERE id = {id};"
         super().execute(query)

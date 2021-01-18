@@ -5,19 +5,35 @@ class Seller:
     __phone: str
 
     def __init__(self, name: str, email: str, phone: str, identifier: int = None):
-        self.__identifier = identifier
-        self.__name = name
-        self.__email = email
-        self.__phone = phone
+        self.identifier = identifier
+        self.name = name
+        self.email = email
+        self.phone = phone
     
-    def get_identifier(self) -> int:
+    @property
+    def identifier(self) -> int:
         return self.__identifier
+    @identifier.setter
+    def identifier(self, identifier: int) -> None:
+        self.__identifier = identifier
 
-    def get_name(self) -> str:
+    @property
+    def name(self) -> str:
         return self.__name
+    @name.setter
+    def name(self, name: str) -> None:
+        self.__name = name
 
-    def get_email(self) -> str:
+    @property
+    def email(self) -> str:
         return self.__email
+    @email.setter
+    def email(self, email: str) -> None:
+        self.__email = email
     
-    def get_phone(self) -> str:
+    @property
+    def phone(self) -> str:
         return self.__phone
+    @phone.setter
+    def phone(self, phone: str) -> None:
+        self.__phone = phone

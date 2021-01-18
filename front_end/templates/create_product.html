@@ -3,9 +3,9 @@
 {% block corpo %} 
 
 {% if titulo == 'Alteração de Produto' %}
-{% set name = product.get_name()  %}
-{% set description = product.get_description()  %}
-{% set price = product.get_price()  %}
+{% set name = product.name  %}
+{% set description = product.description %}
+{% set price = product.price %}
 <form action="/alterar_produto/{{identifier}}" method="POST">
 {% else %}
 {% set name = ''  %}

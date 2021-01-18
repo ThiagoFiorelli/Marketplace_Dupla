@@ -3,9 +3,9 @@ from back_end.models.log import Log
 
 class LogDao(BaseDao):
     def create(self, log: Log) -> None:
-        hora = log.get_hour()
-        date = log.get_date()
-        message = log.get_message()
+        hora = log.hour
+        date = log.date
+        message = log.message
 
         query = f"INSERT INTO log (hora, data, mensagem) values('{hora}','{date}', '{message}');"
         super().execute(query)
