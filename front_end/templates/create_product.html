@@ -3,13 +3,19 @@
 {% block corpo %} 
 
 {% if titulo == 'Alteração de Produto' %}
+{% set name = product.get_name()  %}
+{% set description = product.get_description()  %}
+{% set price = product.get_price()  %}
 <form action="/alterar_produto/{{identifier}}" method="POST">
 {% else %}
+{% set name = ''  %}
+{% set description = ''  %}
+{% set price = ''  %}
 <form action="/cadastrar_produto">
 {% endif %}
-    <label>Nome :</label> <input type="text" name="name" id="name"/>
-    <label>Descrição :</label> <input type="text" name="description" id="description"/>
-    <label>Preço :</label> <input type="number" name="price" id="price"/>
+    <label>Nome :</label> <input type="text" name="name" id="name" value="{{name}}" />
+    <label>Descrição :</label> <input type="text" name="description" id="description" value="{{description}}" />
+    <label>Preço :</label> <input type="number" name="price" id="price" value="{{price}}" />
     <input type='submit' value='Criar' />
 </form>
 <a href='/'>Voltar</a>
