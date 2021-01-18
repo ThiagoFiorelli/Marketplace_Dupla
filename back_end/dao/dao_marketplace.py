@@ -26,5 +26,6 @@ class MarketplaceDao(BaseDao):
         super().execute(query)
 
     def update(self, model:Marketplace)->None:
+        print(model)
         query = f"UPDATE marketplaces SET name_mktplaces='{model.name}', description='{model.description}' WHERE id={model.identifier};"
         super().execute(query)

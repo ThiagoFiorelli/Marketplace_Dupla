@@ -19,17 +19,6 @@ from back_end.models.log import Log
 app = Flask(__name__)
 titulo_head = 'Lojinha'
 
-@app.route('/cadastrar_marketplace')
-def cadastro_Marketplace():
-    menssagem = ''
-    marketplace_add = request.args.get('name')
-    description_market = request.args.get('description')
-    if marketplace_add is not None and description_market is not None:
-        mkp = Marketplace(marketplace_add, description_market)
-        MarketplaceController().create(mkp)
-        menssagem = f'{mkp.name} cadastrado com sucesso'
-    return render_template('create_marketplace.html', menssagem=menssagem, titulo='Cadastro de Marketplaces', titulo_head=titulo_head)
-
 @app.route('/cadastrar_seller')
 def cadastro_Seller():
     message = ''
@@ -121,19 +110,45 @@ def lista_categorias():
 
 @app.route('/deletar_marketplace/<identifier>')
 def delete_marketplace(identifier):
-    MarketplaceController.delete(identifier)
+    MarketplaceController().delete(identifier)
     return redirect(url_for('lista_marketplaces'), code=302)
 
 @app.route('/alterar_marketplace/<identifier>', methods=['GET', 'POST'])
 def altera_marketplace(identifier):
     if request.method == 'POST':
-        mkp_name = request.args.get('name')
-        mkp_desc = request.args.get('description')
+        mkp_name = request.form.get('name')
+        print(mkp_name)
+        mkp_desc = request.form.get('description')
         mkp = Marketplace(mkp_name, mkp_desc, identifier)
+        print("op")
+        print(mkp)
         MarketplaceController().update(mkp)
+        menssagem = f'{mkp.name} atualizado com sucesso'
         return redirect('listar_marketplaces')
     return render_template('create_marketplace.html', identifier = identifier, titulo='Alteração de Marketplace', titulo_head=titulo_head)
   
+
+@app.route('/cadastrar_marketplace')
+def cadastro_Marketplace():
+    menssagem = ''
+    marketplace_add = request.args.get('name')
+    description_market = request.args.get('description')
+    if marketplace_add is not None and description_market is not None:
+        mkp = Marketplace(marketplace_add, description_market)
+        MarketplaceController().create(mkp)
+        menssagem = f'{mkp.name} cadastrado com sucesso'
+    return render_template('create_marketplace.html', menssagem=menssagem, titulo='Cadastro de Marketplaces', titulo_head=titulo_head)
+
+
+
+
+
+
+
+
+
+
+
 @app.route('/delete_seller/<identifier>')
 def delete_seller(identifier):
     SellerController().delete(identifier)
@@ -147,8 +162,8 @@ def delete_category(identifier):
 @app.route('/alterar_categoria/<identifier>', methods=['GET', 'POST'])
 def altera_categorias(identifier):
     if request.method == 'POST':
-        cat_name = request.args.get('name')
-        cat_desc = request.args.get('description')
+        cat_name = request.form.get('name')
+        cat_desc = request.form.get('description')
         cat = Category(cat_name, cat_desc, identifier)
         CategoryController().update(cat)
         return redirect('/listar_categorias')

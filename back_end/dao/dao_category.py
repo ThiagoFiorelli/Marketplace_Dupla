@@ -6,7 +6,7 @@ class CategoryDao(BaseDao):
         query = f"""INSERT INTO category
                     (name_category,description)
                     VALUES
-                    ('{model.name}','{model.description}');")"""
+                    ('{model.name}','{model.description}');"""
         super().execute(query)
 
     def read_by_id(self, id:int)->Category:
