@@ -17,11 +17,11 @@
         <tbody>
             {% for seller in sellers %}
             <tr>
-                <td>{{seller.get_name()}}</td>
-                <td>{{seller.get_email()}}</td>
-                <td>{{seller.get_phone()}}</td>
-                <td><a href="/delete_seller/{{seller.get_identifier()}}">Deletar</a></td>
-                <td><a href="/alterar_seller/{{seller.get_identifier()}}">Alterar</a></td>
+                <td>{{seller.name}}</td>
+                <td>{{seller.email}}</td>
+                <td>{{seller.phone}}</td>
+                <td><a href="/delete_seller/{{seller.identifier}}">Deletar</a></td>
+                <td><a href="/alterar_seller/{{seller.identifier}}">Alterar</a></td>
             </tr>
             {% endfor %}
         </tbody>

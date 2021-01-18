@@ -3,9 +3,9 @@ from back_end.models.seller import Seller
 
 class SellerDao(BaseDao):
     def create(self, seller: Seller) -> None:
-        name = seller.get_name()
-        email = seller.get_email()
-        phone = seller.get_phone()
+        name = seller.name
+        email = seller.email
+        phone = seller.phone
 
         query = f"INSERT INTO seller (name_seller, email, phone) values('{name}','{email}', '{phone}');"
         super().execute(query)
@@ -34,9 +34,9 @@ class SellerDao(BaseDao):
         super().execute(query)
 
     def update(self, seller: Seller) -> None:
-        id = seller.get_identifier()
-        name = seller.get_name()
-        email = seller.get_email()
-        phone = seller.get_phone()
+        id = seller.identifier
+        name = seller.name
+        email = seller.email
+        phone = seller.phone
         query = f"UPDATE seller set name_seller = '{name}', email = '{email}', phone = '{phone}' WHERE id = {id};"
         super().execute(query)
