@@ -75,31 +75,19 @@ def lista_marketplaces():
     return render_template('list_marketplaces.html', marketplaces=marketplaces, titulo='Marketplaces',
                            titulo_head=titulo_head)
 
-@app.route('/listar_sellers', methods=['GET', 'POST'])
+@app.route('/listar_sellers', methods=['GET'])
 def lista_sellers():
-    if request.method == 'POST':
-        search = request.form.get('search')
-    else:
-        search = None
-    sellers = SellerController().read_all(search)
+    sellers = SellerController().read_all()
     return render_template('list_sellers.html', sellers=sellers, titulo='Sellers', titulo_head=titulo_head)
 
-@app.route('/listar_produtos', methods=['GET', 'POST'])
+@app.route('/listar_produtos', methods=['GET'])
 def lista_produtos():
-    if request.method == 'POST':
-        search = request.form.get('search')
-    else:
-        search = None
-    products = ProductController().read_all(search)
+    products = ProductController().read_all()
     return render_template('list_products.html', products=products, titulo="Produtos", titulo_head=titulo_head)
 
-@app.route('/listar_logs', methods=['GET', 'POST'])
+@app.route('/listar_logs', methods=['GET'])
 def lista_logs():
-    if request.method == 'POST':
-        search = request.form.get('search')
-    else:
-        search = None
-    logs = LogController().read_all(search)
+    logs = LogController().read_all()
     return render_template('list_logs.html', logs=logs, titulo="Histórico", titulo_head=titulo_head)
 
 @app.route('/alterar_seller/<identifier>', methods=['GET', 'POST'])

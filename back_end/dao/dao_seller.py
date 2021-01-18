@@ -10,11 +10,8 @@ class SellerDao(BaseDao):
         query = f"INSERT INTO seller (name_seller, email, phone) values('{name}','{email}', '{phone}');"
         super().execute(query)
 
-    def read_all(self, search: str = None) -> list[Seller]:
-        if search == None:
-            query = "SELECT * FROM seller;"
-        else:
-            query = f"SELECT * FROM seller WHERE name_seller LIKE '%{search}%' OR email LIKE '%{search}%' OR phone LIKE '%{search}%';"
+    def read_all(self) -> list[Seller]:
+        query = "SELECT * FROM seller;"
         sellers = []
         list_seller = super().read(query)
 

@@ -10,11 +10,8 @@ class LogDao(BaseDao):
         query = f"INSERT INTO log (hora, data, mensagem) values('{hora}','{date}', '{message}');"
         super().execute(query)
 
-    def read_all(self, search: str = None) -> list[Log]:
-        if search == None:
-            query = "SELECT * FROM log;"
-        else:
-            query = f"SELECT * FROM log WHERE mensagem LIKE '%{search}%';"
+    def read_all(self) -> list[Log]:
+        query = "SELECT * FROM log;"
         logs = []
         list_log = super().read(query)
 

@@ -12,5 +12,5 @@ class LogController:
         log = Log(phrase)
         self.__dao.create(log)
     
-    def read_all(self, search: str = None) -> list[Log]:
-        return self.__dao.read_all(search)
+    def read_all(self) -> list[Log]:
+        return self.__dao.read_all()

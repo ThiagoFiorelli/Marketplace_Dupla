@@ -10,11 +10,8 @@ class ProductDao(BaseDao):
         query = f"INSERT INTO products (name_prod, description, price) values('{name}','{description}', {price});"
         super().execute(query)
 
-    def read_all(self, search: str = None) -> list[Product]:
-        if search == None:
-            query = "SELECT * FROM products;"
-        else:
-            query = f"SELECT * FROM products WHERE name_prod LIKE '%{search}%' OR description LIKE '%{search}%';"
+    def read_all(self) -> list[Product]:
+        query = "SELECT * FROM products;"
         products = []
         list_product = super().read(query)
 

@@ -16,8 +16,8 @@ class BaseController:
         self.__log.create(f'Listagem de {self.__tipo} de id {id} da database.')
         return lista
 
-    def read_all(self, search: str = None)->list:
-        lista = self.__dao.read_all(search)
+    def read_all(self)->list:
+        lista = self.__dao.read_all()
         self.__log.create(f'Listagem de {self.__tipo} da database.')
         return lista
 
