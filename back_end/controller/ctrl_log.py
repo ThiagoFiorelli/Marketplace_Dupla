@@ -8,8 +8,9 @@ class LogController:
     def __init__(self) -> None:
         self.__dao = LogDao()
 
-    def create(self, model: object) -> None:
-        self.__dao.create(model)
+    def create(self, phrase: str) -> None:
+        log = Log(phrase)
+        self.__dao.create(log)
     
-    def read_all(self, search: str = None) -> list[Log]:
-        return self.__dao.read_all(search)
+    def read_all(self) -> list[Log]:
+        return self.__dao.read_all()

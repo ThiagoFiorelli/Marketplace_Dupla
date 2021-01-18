@@ -1,4 +1,4 @@
-from ctrl_log import LogController
+from .ctrl_log import LogController
 
 class BaseController:
     def __init__(self, dao, tipo:str)->None:
@@ -27,4 +27,4 @@ class BaseController:
 
     def update(self, model: object)->None:
         self.__dao.update(model)
-        self.__log.create(f'Alterando informações de {self.__tipo} com id "{model.id}".')
+        self.__log.create(f'Alterando informações de {self.__tipo} com id "{model.identifier}".')
