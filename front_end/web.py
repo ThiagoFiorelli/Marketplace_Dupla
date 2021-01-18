@@ -117,11 +117,8 @@ def delete_marketplace(identifier):
 def altera_marketplace(identifier):
     if request.method == 'POST':
         mkp_name = request.form.get('name')
-        print(mkp_name)
         mkp_desc = request.form.get('description')
         mkp = Marketplace(mkp_name, mkp_desc, identifier)
-        print("op")
-        print(mkp)
         MarketplaceController().update(mkp)
         menssagem = f'{mkp.name} atualizado com sucesso'
         return redirect('listar_marketplaces')
@@ -138,16 +135,6 @@ def cadastro_Marketplace():
         MarketplaceController().create(mkp)
         menssagem = f'{mkp.name} cadastrado com sucesso'
     return render_template('create_marketplace.html', menssagem=menssagem, titulo='Cadastro de Marketplaces', titulo_head=titulo_head)
-
-
-
-
-
-
-
-
-
-
 
 @app.route('/delete_seller/<identifier>')
 def delete_seller(identifier):
