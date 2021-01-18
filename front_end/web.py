@@ -51,7 +51,7 @@ def cadastro_Categoria():
     if category_name is not None:
         category_description = request.args.get('description')
         cat = Category(category_name, category_description)
-        CategoryController.create(cat)
+        CategoryController().create(cat)
         mensagem = f'{cat.name} cadastrado com sucesso'
     return render_template('create_category.html', menssagem=mensagem, titulo='Cadastro de Categorias', titulo_head=titulo_head)
 
@@ -71,7 +71,7 @@ def cadastro_Produto():
 
 @app.route('/listar_marketplaces')
 def lista_marketplaces():
-    marketplaces = MarketplaceController.read_all()
+    marketplaces = MarketplaceController().read_all()
     return render_template('list_marketplaces.html', marketplaces=marketplaces, titulo='Marketplaces',
                            titulo_head=titulo_head)
 
@@ -116,7 +116,7 @@ def alterar_produto(identifier):
       
 @app.route('/listar_categorias')
 def lista_categorias():
-    list_cat = CategoryController.read_all()
+    list_cat = CategoryController().read_all()
     return render_template('list_categories.html', categories=list_cat, titulo="Categorias", titulo_head=titulo_head)
 
 @app.route('/deletar_marketplace/<identifier>')
@@ -130,7 +130,7 @@ def altera_marketplace(identifier):
         mkp_name = request.args.get('name')
         mkp_desc = request.args.get('description')
         mkp = Marketplace(mkp_name, mkp_desc, identifier)
-        MarketplaceController.update(mkp)
+        MarketplaceController().update(mkp)
         return redirect('listar_marketplaces')
     return render_template('create_marketplace.html', identifier = identifier, titulo='Alteração de Marketplace', titulo_head=titulo_head)
   
@@ -141,7 +141,7 @@ def delete_seller(identifier):
 
 @app.route('/deletar_categoria/<identifier>')
 def delete_category(identifier):
-    CategoryController.delete_category(identifier)
+    CategoryController().delete(identifier)
     return redirect(url_for('lista_categorias'), code=302)
 
 @app.route('/alterar_categoria/<identifier>', methods=['GET', 'POST'])
@@ -150,7 +150,7 @@ def altera_categorias(identifier):
         cat_name = request.args.get('name')
         cat_desc = request.args.get('description')
         cat = Category(cat_name, cat_desc, identifier)
-        CategoryController.update(cat)
+        CategoryController().update(cat)
         return redirect('/listar_categorias')
     return render_template('create_category.html', identifier = identifier, titulo='Alteração de Categoria', titulo_head=titulo_head)
 
