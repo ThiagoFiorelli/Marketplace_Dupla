@@ -1,20 +1,20 @@
 class Category:
-    __id: int
+    __identifier: int
     __name: str
     __description: str
 
     def __init__(self, name:str, description:str, identifier: int = None):
         self.__name = name
         self.__description = description
-        self.__id = identifier
+        self.__identifier = identifier
 
     @property
     def identifier(self)->int:
-        return self.__id
+        return self.__identifier
     
     @identifier.setter
     def identifier(self, identifier:int)->None:
-        self.__id = identifier
+        self.__identifier = identifier
 
     @property
     def name(self)->str:

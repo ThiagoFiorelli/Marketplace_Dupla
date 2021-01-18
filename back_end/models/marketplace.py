@@ -1,5 +1,5 @@
 class Marketplace:
-    __id: int
+    __identifier: int
     __name: str
     __description: str
 
