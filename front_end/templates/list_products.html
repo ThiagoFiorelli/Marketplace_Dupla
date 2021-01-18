@@ -17,11 +17,11 @@
         </tr>
         {% for product in products %}
         <tr>
-            <td>{{product.get_name()}}</td>
-            <td>{{product.get_description()}}</td>
-            <td>{{product.get_price()}}</td>
-            <td><a href="/delete_product/{{product.get_identifier()}}">Deletar</a></td>
-            <td><a href="/alterar_produto/{{product.get_identifier()}}">Alterar</a></td>
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td><a href="/delete_product/{{product.identifier}}">Deletar</a></td>
+            <td><a href="/alterar_produto/{{product.identifier}}">Alterar</a></td>
         </tr>
         {%endfor%}
     </table>

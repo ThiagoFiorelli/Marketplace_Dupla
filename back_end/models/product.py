@@ -10,14 +10,18 @@ class Product:
         self.__description = description
         self.__price = price
     
-    def get_identifier(self) -> int:
+    @property
+    def identifier(self) -> int:
         return self.__identifier
 
-    def get_name(self) -> str:
+    @property
+    def name(self) -> str:
         return self.__name
 
-    def get_description(self) -> str:
+    @property
+    def description(self) -> str:
         return self.__description
     
-    def get_price(self) -> float:
+    @property
+    def price(self) -> float:
         return self.__price
