@@ -3,18 +3,18 @@ class Marketplace:
     __name: str
     __description: str
 
-    def __init__(self, name:str, description:str), identifier: int = None:
+    def __init__(self, name:str, description:str, identifier: int = None):
         self.__name = name
         self.__description = description
         self.__id = identifier
 
     @property
-    def id(self)->int:
+    def identifier(self)->int:
         return self.__id
     
-    @id.setter
-    def id(self, id:int)->None:
-        self.__id = id
+    @identifier.setter
+    def identifier(self, identifier:int)->None:
+        self.__id = identifier
 
     @property
     def name(self)->str:

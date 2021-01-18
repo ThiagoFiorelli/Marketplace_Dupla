@@ -29,5 +29,5 @@ class CategoryDao(BaseDao):
         super().execute(query)
 
     def update(self, model:Category)->None:
-        query = f"UPDATE category SET name_category='{model.name}', description='{model.description}' WHERE id={model.id};"
+        query = f"UPDATE category SET name_category='{model.name}', description='{model.description}' WHERE id={model.identifier};"
         super().execute(query)

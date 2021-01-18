@@ -27,4 +27,4 @@ class BaseController:
 
     def update(self, model: object)->None:
         self.__dao.update(model)
-        self.__log.create(f'Alterando informações de {self.__tipo} com id "{model.id}".')
+        self.__log.create(f'Alterando informações de {self.__tipo} com id "{model.identifier}".')
