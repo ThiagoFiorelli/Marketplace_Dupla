@@ -1,5 +1,4 @@
 import sys
-
 sys.path.append('.')
 
 from flask import Flask, render_template, request, redirect, url_for
