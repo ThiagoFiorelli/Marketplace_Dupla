@@ -1,5 +1,5 @@
-from ..models.base_model import BaseModel
-from ..dao.session import Session
+from back_end.models.base_model import BaseModel
+from back_end.dao.session import Session
 
 class BaseDao:
     def __init__(self, type_model: str = None) -> None:

@@ -1,6 +1,3 @@
-import sys
-sys.path.append('.')
-from back_end.models.log import Log
 from back_end.models.seller import Seller
 from back_end.models.product import Product
 from back_end.models.category import Category

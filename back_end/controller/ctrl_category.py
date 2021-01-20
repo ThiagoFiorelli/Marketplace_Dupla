@@ -1,6 +1,6 @@
-from .base_controller import BaseController
+from back_end.controller.base_controller import BaseController
 from back_end.dao.dao_category import CategoryDao
-from back_end.models.category import Category
+
 import sys
 sys.path.append('.')
 

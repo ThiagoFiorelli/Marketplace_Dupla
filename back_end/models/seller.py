@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String
-from .base_model import BaseModel
+from back_end.models.base_model import BaseModel
 
 
 class Seller(BaseModel): 

@@ -1,9 +1,6 @@
-import sys
-
-sys.path.append('.')
 
 from back_end.dao.dao_marketplace import MarketplaceDao
-from .base_controller import BaseController
+from back_end.controller.base_controller import BaseController
 
 
 class MarketplaceController(BaseController):
