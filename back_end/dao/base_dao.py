@@ -18,7 +18,7 @@ class BaseDao:
 
     def read_by_id(self, id: int) -> BaseModel:
         with Session() as session:
-            result = session.query(self.__type_model).filter_by(id=id).first()
+            result = session.query(self.__type_model).filter_by(identifier=id).first()
         return result
 
     def delete(self, model: BaseModel) -> None:
