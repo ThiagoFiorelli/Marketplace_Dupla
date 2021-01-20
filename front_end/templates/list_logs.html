@@ -10,22 +10,22 @@
         </thead>
         <tbody>
             {% for log in logs %}
-                {% if 'Cadastro' in log.mensagem %}
+                {% if 'Cadastro' in log.message %}
                     {% set valor_classe = "table-success" %}
                 {% endif %}
-                {% if 'Listagem' in log.mensagem %}
+                {% if 'Listagem' in log.message %}
                     {% set valor_classe = "table-info" %}
                 {% endif %}
-                {% if 'Deletando' in log.mensagem %}
+                {% if 'Deletando' in log.message %}
                     {% set valor_classe = "table-danger" %}
                 {% endif %}
-                {% if 'Alterando' in log.mensagem %}
+                {% if 'Alterando' in log.message %}
                     {% set valor_classe = "table-warning" %}
                 {% endif %}
                 <tr class={{valor_classe}}>
-                    <td>{{log.hora}}</td>
-                    <td>{{log.data}}</td>
-                    <td>{{log.mensagem}}</td>
+                    <td>{{log.hour}}</td>
+                    <td>{{log.date}}</td>
+                    <td>{{log.message}}</td>
                 </tr>
             {% endfor %}
         </tbody>

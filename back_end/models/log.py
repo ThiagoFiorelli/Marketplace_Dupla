@@ -4,18 +4,18 @@ from sqlalchemy import String, Column
 
 
 class Log(BaseModel):
-    __tablename__ = 'log'
+    __tablename__ = 'logs'
 
-    hora = Column(String(length=50))
-    data = Column(String(length=50))
-    mensagem = Column(String(length=200))
+    hour = Column(String(length=50))
+    date = Column(String(length=50))
+    message = Column(String(length=200))
 
-    def __init__(self, mensagem: str, hora: str = None, data: str = None):
-        if hora == None:
-            self.hora = datetime.now().strftime('%H:%M:%S')
-            self.data = datetime.now().strftime('%d/%m/%Y')
+    def __init__(self, message: str, hour: str = None, date: str = None):
+        if hour == None:
+            self.hour = datetime.now().strftime('%H:%M:%S')
+            self.date = datetime.now().strftime('%d/%m/%Y')
         else:
-            self.hora = hora
-            self.data = data
-        self.mensagem = mensagem
+            self.hour = hour
+            self.date = date
+        self.message = message
 
