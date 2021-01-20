@@ -1,39 +1,16 @@
-class Seller:
-    __identifier: int
-    __name: str
-    __email: str
-    __phone: str
+from sqlalchemy import Column, String
+from .base_model import BaseModel
 
-    def __init__(self, name: str, email: str, phone: str, identifier: int = None):
-        self.identifier = identifier
+
+class Seller(BaseModel): 
+    __tablename__ = 'sellers'
+    
+    name = Column(String(length=100))
+    email = Column(String(length=50))
+    phone = Column(String(length=15))
+
+    def __init__(self, name:str, email:str, phone:str):
         self.name = name
         self.email = email
         self.phone = phone
     
-    @property
-    def identifier(self) -> int:
-        return self.__identifier
-    @identifier.setter
-    def identifier(self, identifier: int) -> None:
-        self.__identifier = identifier
-
-    @property
-    def name(self) -> str:
-        return self.__name
-    @name.setter
-    def name(self, name: str) -> None:
-        self.__name = name
-
-    @property
-    def email(self) -> str:
-        return self.__email
-    @email.setter
-    def email(self, email: str) -> None:
-        self.__email = email
-    
-    @property
-    def phone(self) -> str:
-        return self.__phone
-    @phone.setter
-    def phone(self, phone: str) -> None:
-        self.__phone = phone
