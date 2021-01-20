@@ -121,7 +121,6 @@ def lista_categorias():
 @app.route('/deletar_marketplace/<identifier>')
 def delete_marketplace(identifier):
     marketplace = MarketplaceController().read_by_id(identifier)
-    print(marketplace.name)
     MarketplaceController().delete(marketplace)
     return redirect(url_for('lista_marketplaces'), code=302)
 
@@ -144,7 +143,6 @@ def cadastro_Marketplace():
     description_market = request.args.get('description')
     if marketplace_add is not None and description_market is not None:
         mkp = Marketplace(marketplace_add, description_market)
-        print(mkp.name)
         MarketplaceController().save(mkp)
         #menssagem = f'{mkp.name} cadastrado com sucesso'
     return render_template('create_marketplace.html',  titulo='Cadastro de Marketplaces', titulo_head=titulo_head)
