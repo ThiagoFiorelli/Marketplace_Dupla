@@ -8,4 +8,3 @@ base = declarative_base()
 class BaseModel(base):
     __abstract__ = True
     identifier = Column(Integer, primary_key=True)
-

@@ -39,8 +39,8 @@ def cadastro_Categoria():
     if category_name is not None:
         category_description = request.args.get('description')
         cat = Category(category_name, category_description)
-        CategoryController().create(cat)
-        mensagem = f'{cat.name} cadastrado com sucesso'
+        CategoryController().save(cat)
+        mensagem = f'{category_name} cadastrado com sucesso'
     return render_template('create_category.html', menssagem=mensagem, titulo='Cadastro de Categorias', titulo_head=titulo_head)
 
 
@@ -150,7 +150,8 @@ def delete_seller(identifier):
 
 @app.route('/deletar_categoria/<identifier>')
 def delete_category(identifier):
-    CategoryController().delete(identifier)
+    obj_category = CategoryController().read_by_id(identifier)
+    CategoryController().delete(obj_category)
     return redirect(url_for('lista_categorias'), code=302)
 
 @app.route('/alterar_categoria/<identifier>', methods=['GET', 'POST'])
@@ -158,8 +159,10 @@ def altera_categorias(identifier):
     if request.method == 'POST':
         cat_name = request.form.get('name')
         cat_desc = request.form.get('description')
-        cat = Category(cat_name, cat_desc, identifier)
-        CategoryController().update(cat)
+        obj_cat = CategoryController().read_by_id(identifier)
+        obj_cat.name = cat_name
+        obj_cat.description = cat_desc
+        CategoryController().save(obj_cat)
         return redirect('/listar_categorias')
     return render_template('create_category.html', identifier = identifier, titulo='Alteração de Categoria', titulo_head=titulo_head)
 
