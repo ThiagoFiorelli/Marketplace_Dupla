@@ -1,5 +1,5 @@
 from back_end.models.base_model import BaseModel
-from .ctrl_log import LogController
+from back_end.controller.ctrl_log import LogController
 
 
 class BaseController:
