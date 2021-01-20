@@ -6,7 +6,7 @@ CONTROLLER = LogController()
 titulo_head = 'Lojinha'
 
 
-@log.route('/listar_sellers', methods=['GET'])
+@log.route('/listar_logs', methods=['GET'])
 def lista_sellers():
-    sellers = CONTROLLER.read_all()
-    return render_template('list_sellers.html', sellers=sellers, titulo='Sellers', titulo_head=titulo_head)
+    logs = CONTROLLER.read_all()
+    return render_template('list_logs.html', logs=logs, titulo='Logs', titulo_head=titulo_head)
