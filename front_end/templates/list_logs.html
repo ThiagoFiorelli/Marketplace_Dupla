@@ -13,13 +13,13 @@
                 {% if 'Cadastro' in log.message %}
                     {% set valor_classe = "table-success" %}
                 {% endif %}
-                {% if 'Listado' in log.message %}
+                {% if 'Listagem' in log.message %}
                     {% set valor_classe = "table-info" %}
                 {% endif %}
-                {% if 'Deletado' in log.message %}
+                {% if 'Deletando' in log.message %}
                     {% set valor_classe = "table-danger" %}
                 {% endif %}
-                {% if 'Alterado' in log.message %}
+                {% if 'Alterando' in log.message %}
                     {% set valor_classe = "table-warning" %}
                 {% endif %}
                 <tr class={{valor_classe}}>

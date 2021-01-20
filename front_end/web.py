@@ -27,7 +27,7 @@ def cadastro_Seller():
 
     if name is not None and phone is not None and email is not None:
         seller = Seller(name, email, phone)
-        SellerController().create(seller)
+        SellerController().save(seller)
         message = f'{name} adicionado com sucesso'
     return render_template('create_seller.html', menssagem=message, titulo='Cadastro Seller', titulo_head=titulo_head)
 
@@ -52,7 +52,7 @@ def cadastro_Produto():
         description = request.args.get('description')
         price = request.args.get('price')
         product = Product(name, description, price)
-        ProductController().create(product)
+        ProductController().save(product)
         menssagem = f'{name} cadastrado com sucesso'
     return render_template('create_product.html', menssagem=menssagem, titulo='Cadastro de Produtos', titulo_head=titulo_head)
 
@@ -81,11 +81,11 @@ def lista_logs():
 @app.route('/alterar_seller/<identifier>', methods=['GET', 'POST'])
 def alterar_seller(identifier):
     if request.method == 'POST':
-        name = request.form.get('name')
-        email = request.form.get('email')
-        phone = request.form.get('phone')
-        seller = Seller(name, email, phone, identifier)
-        SellerController().update(seller)
+        seller = SellerController().read_by_id(identifier)
+        seller.name = request.form.get('name')
+        seller.email = request.form.get('email')
+        seller.phone = request.form.get('phone')
+        SellerController().save(seller)
         return redirect('/listar_sellers')
     seller = SellerController().read_by_id(identifier)
     return render_template('create_seller.html', identifier = identifier, seller = seller, titulo='Alteração de Seller', titulo_head=titulo_head)
@@ -96,8 +96,12 @@ def alterar_produto(identifier):
         name = request.form.get('name')
         description = request.form.get('description')
         price = request.form.get('price')
-        product = Product(name, description, price, identifier)
-        ProductController().update(product)
+
+        product = ProductController().read_by_id(identifier)
+        product.name = name
+        product.description = description
+        product.price = price
+        ProductController().save(product)
         return redirect('/listar_produtos')
     product = ProductController().read_by_id(identifier)
     return render_template('create_product.html', identifier = identifier, product = product, titulo='Alteração de Produto', titulo_head=titulo_head)
@@ -109,19 +113,21 @@ def lista_categorias():
 
 @app.route('/deletar_marketplace/<identifier>')
 def delete_marketplace(identifier):
-    MarketplaceController().delete(identifier)
+    marketplace = MarketplaceController().read_by_id(identifier)
+    print(marketplace.name)
+    MarketplaceController().delete(marketplace)
     return redirect(url_for('lista_marketplaces'), code=302)
 
 @app.route('/alterar_marketplace/<identifier>', methods=['GET', 'POST'])
 def altera_marketplace(identifier):
+    marketplace = MarketplaceController().read_by_id(identifier)
     if request.method == 'POST':
-        mkp_name = request.form.get('name')
-        mkp_desc = request.form.get('description')
-        mkp = Marketplace(mkp_name, mkp_desc, identifier)
-        MarketplaceController().update(mkp)
-        menssagem = f'{mkp.name} atualizado com sucesso'
+        marketplace.name = request.form.get('name')
+        marketplace.description = request.form.get('description')
+        MarketplaceController().save(marketplace)
+        menssagem = f'{marketplace.name} atualizado com sucesso'
         return redirect('listar_marketplaces')
-    return render_template('create_marketplace.html', identifier = identifier, titulo='Alteração de Marketplace', titulo_head=titulo_head)
+    return render_template('create_marketplace.html', identifier = identifier, titulo='Alteração de Marketplace', titulo_head=titulo_head, marketplace=marketplace)
   
 
 @app.route('/cadastrar_marketplace')
@@ -131,13 +137,15 @@ def cadastro_Marketplace():
     description_market = request.args.get('description')
     if marketplace_add is not None and description_market is not None:
         mkp = Marketplace(marketplace_add, description_market)
-        MarketplaceController().create(mkp)
-        menssagem = f'{mkp.name} cadastrado com sucesso'
+        print(mkp.name)
+        MarketplaceController().save(mkp)
+        #menssagem = f'{mkp.name} cadastrado com sucesso'
     return render_template('create_marketplace.html', menssagem=menssagem, titulo='Cadastro de Marketplaces', titulo_head=titulo_head)
 
 @app.route('/delete_seller/<identifier>')
 def delete_seller(identifier):
-    SellerController().delete(identifier)
+    seller = SellerController().read_by_id(identifier)
+    SellerController().delete(seller)
     return redirect('/listar_sellers')
 
 @app.route('/deletar_categoria/<identifier>')
@@ -160,7 +168,9 @@ def altera_categorias(identifier):
 
 @app.route('/delete_product/<identifier>')
 def delete_product(identifier):
-    ProductController().delete(identifier)
+    product = ProductController()
+    product_deleted = product.read_by_id(identifier)
+    product.delete(product_deleted)
     return redirect('/listar_produtos')
 
 @app.route('/')
@@ -168,4 +178,4 @@ def home():
     return render_template('home.html', titulo_head=titulo_head)
 
 
-app.run()
+app.run(debug=True)

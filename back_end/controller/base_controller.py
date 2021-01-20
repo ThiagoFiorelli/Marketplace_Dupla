@@ -1,12 +1,12 @@
 from back_end.models.base_model import BaseModel
-from .ctrl_log import LogController
+from back_end.controller.ctrl_log import LogController
 
 
 class BaseController:
-    def __init__(self, dao, tipo) -> None:
+    def __init__(self, dao, tipo: str) -> None:
         self.__dao = dao
         self.__tipo = tipo
-        #self.__log = LogController(self.__tipo)
+        #self.__log = LogController()
 
     def save(self, model: BaseModel) -> None:
         self.__dao.save(model)
