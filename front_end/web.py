@@ -27,7 +27,7 @@ def cadastro_Seller():
 
     if name is not None and phone is not None and email is not None:
         seller = Seller(name, email, phone)
-        SellerController().create(seller)
+        SellerController().save(seller)
         message = f'{name} adicionado com sucesso'
     return render_template('create_seller.html', menssagem=message, titulo='Cadastro Seller', titulo_head=titulo_head)
 
@@ -81,11 +81,11 @@ def lista_logs():
 @app.route('/alterar_seller/<identifier>', methods=['GET', 'POST'])
 def alterar_seller(identifier):
     if request.method == 'POST':
-        name = request.form.get('name')
-        email = request.form.get('email')
-        phone = request.form.get('phone')
-        seller = Seller(name, email, phone, identifier)
-        SellerController().update(seller)
+        seller = SellerController().read_by_id(identifier)
+        seller.name = request.form.get('name')
+        seller.email = request.form.get('email')
+        seller.phone = request.form.get('phone')
+        SellerController().save(seller)
         return redirect('/listar_sellers')
     seller = SellerController().read_by_id(identifier)
     return render_template('create_seller.html', identifier = identifier, seller = seller, titulo='Alteração de Seller', titulo_head=titulo_head)
@@ -137,7 +137,8 @@ def cadastro_Marketplace():
 
 @app.route('/delete_seller/<identifier>')
 def delete_seller(identifier):
-    SellerController().delete(identifier)
+    seller = SellerController().read_by_id(identifier)
+    SellerController().delete(seller)
     return redirect('/listar_sellers')
 
 @app.route('/deletar_categoria/<identifier>')
@@ -165,4 +166,4 @@ def home():
     return render_template('home.html', titulo_head=titulo_head)
 
 
-app.run()
+app.run(debug=True)
