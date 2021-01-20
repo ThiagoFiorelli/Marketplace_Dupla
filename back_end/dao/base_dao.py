@@ -3,7 +3,7 @@ from ..dao.session import Session
 
 
 class BaseDao:
-    def __init__(self, type_model) -> None:
+    def __init__(self, type_model: str = None) -> None:
         self.__type_model = type_model
 
     def save(self, model: BaseModel) -> None:
@@ -18,7 +18,8 @@ class BaseDao:
 
     def read_by_id(self, id: int) -> BaseModel:
         with Session() as session:
-            result = session.query(self.__type_model).filter_by(id=id).first()
+            result = session.query(self.__type_model).filter_by(
+                identifier=id).first()
         return result
 
     def delete(self, model: BaseModel) -> None:
