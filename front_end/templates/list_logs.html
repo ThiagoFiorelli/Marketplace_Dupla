@@ -19,7 +19,7 @@
                 {% if 'Deletando' in log.message %}
                     {% set valor_classe = "table-danger" %}
                 {% endif %}
-                {% if 'Alterando' in log.message %}
+                {% if 'Update' in log.message %}
                     {% set valor_classe = "table-warning" %}
                 {% endif %}
                 <tr class={{valor_classe}}>
