@@ -1,11 +1,15 @@
-class Product:
-    __identifier: int
-    __name: str
-    __description: str
-    __price: float
+from sqlalchemy import Column, String, Float
+from back_end.models.base_model import BaseModel
 
-    def __init__(self, name: str, description: str, price: float, identifier: int = None):
-        self.identifier = identifier
+
+class Product(BaseModel):
+    __tablename__ = 'products'
+
+    name = Column( String(length = 50) )
+    description = Column( String(length = 100) )
+    price = Column( String(length=10) )
+
+    def __init__(self, name: str, description: str, price: str):
         self.name = name
         self.description = description
         self.price = price
