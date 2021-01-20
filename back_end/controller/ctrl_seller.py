@@ -1,8 +1,6 @@
-import sys
-sys.path.append('.')
-
 from back_end.dao.dao_seller import SellerDao
 from back_end.controller.base_controller import BaseController
+
 
 class SellerController(BaseController):
     def __init__(self) -> None:

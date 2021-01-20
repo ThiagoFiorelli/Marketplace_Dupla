@@ -1,16 +1,20 @@
 {% extends 'template.html' %}
 {% block titulo %} - {{nome}}{% endblock %}
-{% block corpo %} 
+{% block corpo %}
 
 {% if titulo == 'Alteração de Categoria' %}
+{% set name = obj.name %}
+{% set description = obj.description %}
 <form action="/alterar_categoria/{{identifier}}" method="POST">
-{% else %}
-<form action="/cadastrar_categoria">
-{% endif %}
-    <label>Nome :</label> <input type="text" name="name" id="name"/>
-    <label>Descrição :</label> <input type="text" name="description" id="description"/>
-    <input type='submit' value='Criar' />
-</form>
-<a href='/'>Voltar</a>
+    {% else %}
+    {% set name = '' %}
+    {% set description = '' %}
+    <form action="/cadastrar_categoria">
+        {% endif %}
+        <label>Nome :</label> <input type="text" name="name" id="name" value="{{name}}" />
+        <label>Descrição :</label> <input type="text" name="description" id="description" value="{{description}}" />
+        <input type='submit' value='Criar' />
+    </form>
+    <a href='/'>Voltar</a>
 
-{% endblock %}
+    {% endblock %}

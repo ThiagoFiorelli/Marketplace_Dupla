@@ -1,16 +1,20 @@
 {% extends 'template.html' %}
 {% block titulo %} - {{nome}}{% endblock %}
-{% block corpo %} 
+{% block corpo %}
 
 {% if titulo == 'Alteração de Marketplace' %}
+{% set name = marketplace.name %}
+{% set description = marketplace.description %}
 <form action="/alterar_marketplace/{{identifier}}" method="POST">
-{% else %}
-<form action="/cadastrar_marketplace">
-{% endif %}
-    <label>Nome :</label> <input type="text" name="name" id="market"/>
-    <label>Descrição :</label> <input type="text" name="description" id="description"/>
-    <input type='submit' value='Criar' />
-</form>
-<a href='/'>Voltar</a>
+    {% else %}
+    {% set name = '' %}
+    {% set description = '' %}
+    <form action="/cadastrar_marketplace">
+        {% endif %}
+        <label>Nome :</label> <input type="text" value="{{name}}" name="name" id="market" />
+        <label>Descrição :</label> <input type="text" value="{{description}}" name="description" id="description" />
+        <input type='submit' value='Criar' />
+    </form>
+    <a href='/'>Voltar</a>
 
-{% endblock %}
+    {% endblock %}
